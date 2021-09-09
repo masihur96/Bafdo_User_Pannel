@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/glamworlditltd/bafdo/BuildConfig.java
+ com.glamworlditltd.bafdo.BuildConfig
+com/glamworlditltd/bafdo/MainActivity.java
+ com.glamworlditltd.bafdo.MainActivity
