@@ -134,14 +134,17 @@ class _RegisterPageState extends State<RegisterPage> {
                       Padding(
                         padding: EdgeInsets.only(
                             left: size.width * .02, top: size.width * .01),
-                        child: Text(
-                          'By Continuing Your Confirm That You Agree With',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontFamily: 'taviraj',
-                              color: ColorsVariables.textColor,
-                              fontStyle: FontStyle.normal,
-                              fontSize: size.width * .035),
+                        child: Container(
+                          width: size.width * .7,
+                          child: Text(
+                            'By Continuing Your Confirm That You Agree With',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                fontFamily: 'taviraj',
+                                color: ColorsVariables.textColor,
+                                fontStyle: FontStyle.normal,
+                                fontSize: size.width * .035),
+                          ),
                         ),
                       ),
                       InkWell(

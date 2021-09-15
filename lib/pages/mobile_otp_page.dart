@@ -67,172 +67,190 @@ class _OTPPageState extends State<OTPPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      height: size.width * .15,
-                      width: size.width * .15,
-                      alignment: Alignment.center,
-                      decoration: new BoxDecoration(
-                          border: new Border.all(
-                              width: 2.0, color: Color.fromRGBO(0, 0, 0, 0.1)),
-                          borderRadius: new BorderRadius.circular(6.97)),
-                      child: TextField(
-                        inputFormatters: [
-                          LengthLimitingTextInputFormatter(1),
-                        ],
-                        decoration: InputDecoration(
-                          focusedBorder: InputBorder.none,
-                          hintText: '0',
+                    Expanded(
+                      child: Container(
+                        height: size.width * .15,
+                        width: size.width * .15,
+                        alignment: Alignment.center,
+                        decoration: new BoxDecoration(
+                            border: new Border.all(
+                                width: 2.0,
+                                color: Color.fromRGBO(0, 0, 0, 0.1)),
+                            borderRadius: new BorderRadius.circular(6.97)),
+                        child: TextField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(1),
+                          ],
+                          decoration: InputDecoration(
+                            focusedBorder: InputBorder.none,
+                            hintText: '0',
+                          ),
+                          controller: controller1,
+                          autofocus: true,
+                          enabled: false,
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .06),
                         ),
-                        controller: controller1,
-                        autofocus: true,
-                        enabled: true,
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .06),
                       ),
                     ),
-                    Container(
-                      height: size.width * .15,
-                      width: size.width * .15,
-                      alignment: Alignment.center,
-                      decoration: new BoxDecoration(
-                          border: new Border.all(
-                              width: 2.0, color: Color.fromRGBO(0, 0, 0, 0.1)),
-                          borderRadius: new BorderRadius.circular(6.97)),
-                      child: TextField(
-                        inputFormatters: [
-                          LengthLimitingTextInputFormatter(1),
-                        ],
-                        controller: controller2,
-                        decoration: InputDecoration(
-                          focusedBorder: InputBorder.none,
-                          hintText: '0',
+                    Expanded(
+                      child: Container(
+                        height: size.width * .15,
+                        width: size.width * .15,
+                        alignment: Alignment.center,
+                        decoration: new BoxDecoration(
+                            border: new Border.all(
+                                width: 2.0,
+                                color: Color.fromRGBO(0, 0, 0, 0.1)),
+                            borderRadius: new BorderRadius.circular(6.97)),
+                        child: TextField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(1),
+                          ],
+                          controller: controller2,
+                          decoration: InputDecoration(
+                            focusedBorder: InputBorder.none,
+                            hintText: '0',
+                          ),
+                          autofocus: true,
+                          enabled: false,
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .06),
                         ),
-                        autofocus: true,
-                        enabled: true,
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .06),
                       ),
                     ),
-                    Container(
-                      height: size.width * .15,
-                      width: size.width * .15,
-                      alignment: Alignment.center,
-                      decoration: new BoxDecoration(
-                          border: new Border.all(
-                              width: 2.0, color: Color.fromRGBO(0, 0, 0, 0.1)),
-                          borderRadius: new BorderRadius.circular(6.97)),
-                      child: TextField(
-                        inputFormatters: [
-                          LengthLimitingTextInputFormatter(1),
-                        ],
-                        decoration: InputDecoration(
-                          focusedBorder: InputBorder.none,
-                          hintText: '0',
+                    Expanded(
+                      child: Container(
+                        height: size.width * .15,
+                        width: size.width * .15,
+                        alignment: Alignment.center,
+                        decoration: new BoxDecoration(
+                            border: new Border.all(
+                                width: 2.0,
+                                color: Color.fromRGBO(0, 0, 0, 0.1)),
+                            borderRadius: new BorderRadius.circular(6.97)),
+                        child: TextField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(1),
+                          ],
+                          decoration: InputDecoration(
+                            focusedBorder: InputBorder.none,
+                            hintText: '0',
+                          ),
+                          controller: controller3,
+                          autofocus: true,
+                          enabled: false,
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .06),
                         ),
-                        controller: controller3,
-                        autofocus: true,
-                        enabled: true,
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .06),
                       ),
                     ),
-                    Container(
-                      height: size.width * .15,
-                      width: size.width * .15,
-                      alignment: Alignment.center,
-                      decoration: new BoxDecoration(
-                          border: new Border.all(
-                              width: 2.0, color: Color.fromRGBO(0, 0, 0, 0.1)),
-                          borderRadius: new BorderRadius.circular(6.97)),
-                      child: TextField(
-                        inputFormatters: [
-                          LengthLimitingTextInputFormatter(1),
-                        ],
-                        decoration: InputDecoration(
-                          focusedBorder: InputBorder.none,
-                          hintText: '0',
+                    Expanded(
+                      child: Container(
+                        height: size.width * .15,
+                        width: size.width * .15,
+                        alignment: Alignment.center,
+                        decoration: new BoxDecoration(
+                            border: new Border.all(
+                                width: 2.0,
+                                color: Color.fromRGBO(0, 0, 0, 0.1)),
+                            borderRadius: new BorderRadius.circular(6.97)),
+                        child: TextField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(1),
+                          ],
+                          decoration: InputDecoration(
+                            focusedBorder: InputBorder.none,
+                            hintText: '0',
+                          ),
+                          controller: controller4,
+                          autofocus: true,
+                          enabled: false,
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .06),
                         ),
-                        controller: controller4,
-                        autofocus: true,
-                        enabled: true,
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .06),
                       ),
                     ),
-                    Container(
-                      height: size.width * .15,
-                      width: size.width * .15,
-                      alignment: Alignment.center,
-                      decoration: new BoxDecoration(
-                          border: new Border.all(
-                              width: 2.0, color: Color.fromRGBO(0, 0, 0, 0.1)),
-                          borderRadius: new BorderRadius.circular(6.97)),
-                      child: TextField(
-                        inputFormatters: [
-                          LengthLimitingTextInputFormatter(1),
-                        ],
-                        decoration: InputDecoration(
-                          focusedBorder: InputBorder.none,
-                          hintText: '0',
+                    Expanded(
+                      child: Container(
+                        height: size.width * .15,
+                        width: size.width * .15,
+                        alignment: Alignment.center,
+                        decoration: new BoxDecoration(
+                            border: new Border.all(
+                                width: 2.0,
+                                color: Color.fromRGBO(0, 0, 0, 0.1)),
+                            borderRadius: new BorderRadius.circular(6.97)),
+                        child: TextField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(1),
+                          ],
+                          decoration: InputDecoration(
+                            focusedBorder: InputBorder.none,
+                            hintText: '0',
+                          ),
+                          controller: controller5,
+                          autofocus: true,
+                          enabled: false,
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .06),
                         ),
-                        controller: controller5,
-                        autofocus: true,
-                        enabled: true,
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .06),
                       ),
                     ),
-                    Container(
-                      height: size.width * .15,
-                      width: size.width * .15,
-                      alignment: Alignment.center,
-                      decoration: new BoxDecoration(
-                          border: new Border.all(
-                              width: 2.0, color: Color.fromRGBO(0, 0, 0, 0.1)),
-                          borderRadius: new BorderRadius.circular(6.97)),
-                      child: TextField(
-                        inputFormatters: [
-                          LengthLimitingTextInputFormatter(1),
-                        ],
-                        decoration: InputDecoration(
-                          focusedBorder: InputBorder.none,
-                          hintText: '0',
+                    Expanded(
+                      child: Container(
+                        height: size.width * .15,
+                        width: size.width * .15,
+                        alignment: Alignment.center,
+                        decoration: new BoxDecoration(
+                            border: new Border.all(
+                                width: 2.0,
+                                color: Color.fromRGBO(0, 0, 0, 0.1)),
+                            borderRadius: new BorderRadius.circular(6.97)),
+                        child: TextField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(1),
+                          ],
+                          decoration: InputDecoration(
+                            focusedBorder: InputBorder.none,
+                            hintText: '0',
+                          ),
+                          controller: controller6,
+                          autofocus: true,
+                          enabled: false,
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .06),
                         ),
-                        controller: controller6,
-                        autofocus: true,
-                        enabled: true,
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .06),
                       ),
                     ),
                   ],

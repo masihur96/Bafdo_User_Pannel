@@ -57,7 +57,7 @@ Widget getReviewTemplate(BuildContext context) {
               ],
             ),
             SizedBox(
-              width: 150,
+              width: size.width * .3,
             ),
             ElevatedButton(
               onPressed: () {},
@@ -124,10 +124,15 @@ Widget getReviewTemplate(BuildContext context) {
               itemCount: 6,
               itemBuilder: (context, index) {
                 return Container(
-                    height: 100,
-                    width: 100,
-                    child:
-                        Image.asset('assets/app_icon/body_icon/joy_stick.png'));
+                    height: size.width * .15,
+                    width: size.width * .3,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'assets/app_icon/body_icon/joy_stick.png',
+                        fit: BoxFit.fill,
+                      ),
+                    ));
               }),
         ),
         Center(

@@ -79,12 +79,12 @@ class _CartPageState extends State<CartPage> {
                   ],
                 ),
                 Container(
-                  height: size.width * .6,
+                  height: size.width,
                   width: size.width,
                   child: ListView.builder(
                     // scrollDirection: Axis.vertical,
-                    // physics: NeverScrollableScrollPhysics(),
-                    itemCount: 8,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: 4,
                     itemBuilder: (context, index) {
                       return Slidable(
                         actionPane: SlidableStrechActionPane(),
@@ -267,166 +267,165 @@ class _CartPageState extends State<CartPage> {
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      selectedItem.add(index);
-                    });
+      child: Row(
+        children: [
+          InkWell(
+            onTap: () {
+              setState(() {
+                selectedItem.add(index);
+              });
 
-                    print(selectedItem);
-                  },
-                  child: selectedItem.contains(index) || selectAll == true
-                      ? InkWell(
-                          onTap: () {
-                            setState(() {
-                              selectedItem.remove(index);
-                            });
-                          },
-                          child: Image.asset(
-                              'assets/app_icon/body_icon/squire_pink_box.png'),
-                        )
-                      : Padding(
+              print(selectedItem);
+            },
+            child: selectedItem.contains(index) || selectAll == true
+                ? InkWell(
+                    onTap: () {
+                      setState(() {
+                        selectedItem.remove(index);
+                      });
+                    },
+                    child: Container(
+                      height: size.width * .06,
+                      width: size.width * .06,
+                      child: Image.asset(
+                        'assets/app_icon/body_icon/squire_pink_box.png',
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: size.width * .03,
+                      width: size.width * .03,
+                      child: Image.asset(
+                        'assets/app_icon/body_icon/squire_grey_box.png',
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+          ),
+          Container(
+            width: size.width * .85,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(9.7))),
+            child: Stack(
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: size.width * .15,
+                        width: size.width * .15,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade100,
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                        child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                              'assets/app_icon/body_icon/squire_grey_box.png'),
+                              'assets/app_icon/body_icon/joy_stick.png',
+                              fit: BoxFit.fill),
                         ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(9.7))),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Container(
-                              child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  height: size.width * .1,
-                                  width: size.width * .1,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey.shade100,
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(5))),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                        'assets/app_icon/body_icon/joy_stick.png',
-                                        fit: BoxFit.fill),
-                                  ),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Gaming Controller',
-                                    style: TextStyle(
-                                        fontFamily: 'taviraj',
-                                        color: ColorsVariables.textColor,
-                                        fontStyle: FontStyle.normal,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: size.width * .04),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Image.asset(
-                                          'assets/app_icon/body_icon/tk.png'),
-                                      Text(
-                                        '15.99',
-                                        style: TextStyle(
-                                            fontFamily: 'taviraj',
-                                            color: Colors.grey.shade600,
-                                            fontStyle: FontStyle.normal,
-                                            fontSize: size.width * .035),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )),
+                        Text(
+                          'Gaming Controller',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.w500,
+                              fontSize: size.width * .04),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 15, bottom: 10),
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          if (counter > 0) {
-                                            counter = counter - 1;
-                                          }
-                                        });
-                                      },
-                                      child: CircleAvatar(
-                                        radius: 15,
-                                        backgroundColor: Colors.grey.shade200,
-                                        child: Image.asset(
-                                          'assets/app_icon/body_icon/minus.png',
-                                          scale: .5,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 25,
-                                      right: 25,
-                                    ),
-                                    child: Text(
-                                      '0$counter',
-                                      style: TextStyle(
-                                          fontFamily: 'taviraj',
-                                          color: ColorsVariables.textColor,
-                                          fontStyle: FontStyle.normal,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: size.width * .05),
-                                    ),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        counter = counter + 1;
-                                      });
-                                    },
-                                    child: CircleAvatar(
-                                      radius: 15,
-                                      backgroundColor: Colors.grey.shade200,
-                                      child: Image.asset(
-                                        'assets/app_icon/body_icon/plus.png',
-                                        scale: .5,
-                                      ),
-                                    ),
-                                  )
-                                ],
+                        Row(
+                          children: [
+                            Image.asset('assets/app_icon/body_icon/tk.png'),
+                            Text(
+                              '15.99',
+                              style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  color: Colors.grey.shade600,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .035),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: Container(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 15, bottom: 5, right: 5),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  if (counter > 0) {
+                                    counter = counter - 1;
+                                  }
+                                });
+                              },
+                              child: CircleAvatar(
+                                radius: size.width * .04,
+                                backgroundColor: Colors.grey.shade200,
+                                child: Image.asset(
+                                  'assets/app_icon/body_icon/minus.png',
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
                           ),
-                        )
-                      ],
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: size.width * .035,
+                            ),
+                            child: Text(
+                              '0$counter',
+                              style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  color: ColorsVariables.textColor,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: size.width * .05),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                counter = counter + 1;
+                              });
+                            },
+                            child: CircleAvatar(
+                              radius: size.width * .04,
+                              backgroundColor: Colors.grey.shade200,
+                              child: Image.asset(
+                                'assets/app_icon/body_icon/plus.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                )
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

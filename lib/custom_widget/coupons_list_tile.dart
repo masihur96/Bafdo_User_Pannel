@@ -34,96 +34,105 @@ class _CouponsListTileState extends State<CouponsListTile> {
                         fontWeight: FontWeight.w500,
                         fontSize: size.width * .05),
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  Stack(
                     children: [
-                      Container(
-                        height: size.width * .2,
-                        width: size.width * .2,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.amber,
-                        ),
-                        child: Image.asset(
-                          'assets/app_icon/body_icon/coupon_icon.png',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '20%  OFF',
-                              style: TextStyle(
-                                  fontFamily: 'taviraj',
-                                  color: ColorsVariables.textColor,
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: size.width * .05),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: size.width * .2,
+                            width: size.width * .2,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              color: Colors.amber,
                             ),
-                            Row(
+                            child: Image.asset(
+                              'assets/app_icon/body_icon/coupon_icon.png',
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Order over',
+                                  '20%  OFF',
                                   style: TextStyle(
                                       fontFamily: 'taviraj',
-                                      color: ColorsVariables.dividerColor,
+                                      color: ColorsVariables.textColor,
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w500,
                                       fontSize: size.width * .05),
                                 ),
-                                SizedBox(
-                                  width: size.width * .04,
-                                ),
                                 Row(
                                   children: [
-                                    Image.asset(
-                                        'assets/app_icon/body_icon/tk.png'),
                                     Text(
-                                      '500.00',
+                                      'Order over',
                                       style: TextStyle(
                                           fontFamily: 'taviraj',
-                                          color: ColorsVariables.textColor,
+                                          color: ColorsVariables.dividerColor,
                                           fontStyle: FontStyle.normal,
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.w500,
                                           fontSize: size.width * .05),
+                                    ),
+                                    SizedBox(
+                                      width: size.width * .04,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                            'assets/app_icon/body_icon/tk.png'),
+                                        Text(
+                                          '500.00',
+                                          style: TextStyle(
+                                              fontFamily: 'taviraj',
+                                              color: ColorsVariables.textColor,
+                                              fontStyle: FontStyle.normal,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: size.width * .05),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
                               ],
                             ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: size.width * .06,
-                      ),
-                      GradientButton(
-                        onPressed: () {
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => OTPPage()));
-                        },
-                        child: Text(
-                          'Get',
-                          style: TextStyle(
-                              fontFamily: 'taviraj',
-                              fontWeight: FontWeight.bold,
-                              color: ColorsVariables.splashSkip,
-                              fontStyle: FontStyle.normal,
-                              fontSize: size.width * .04),
-                        ),
-                        borderRadius: 6.97,
-                        height: size.width * .08,
-                        width: size.width * .2,
-                        gradientColors: [
-                          Colors.pink.shade600,
-                          Colors.pink.shade400
+                          ),
+                          // SizedBox(
+                          //   width: size.width * .06,
+                          // ),
                         ],
                       ),
+                      Positioned(
+                        right: size.width * .02,
+                        bottom: size.width * .08,
+                        child: GradientButton(
+                          onPressed: () {
+                            // Navigator.push(context,
+                            //     MaterialPageRoute(builder: (context) => OTPPage()));
+                          },
+                          child: Text(
+                            'Get',
+                            style: TextStyle(
+                                fontFamily: 'taviraj',
+                                fontWeight: FontWeight.bold,
+                                color: ColorsVariables.splashSkip,
+                                fontStyle: FontStyle.normal,
+                                fontSize: size.width * .04),
+                          ),
+                          borderRadius: 6.97,
+                          height: size.width * .08,
+                          width: size.width * .2,
+                          gradientColors: [
+                            Colors.pink.shade600,
+                            Colors.pink.shade400
+                          ],
+                        ),
+                      )
                     ],
-                  ),
+                  )
                 ],
               ),
             ),

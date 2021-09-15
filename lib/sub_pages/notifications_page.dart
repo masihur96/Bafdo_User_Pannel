@@ -16,7 +16,7 @@ class _NotificationPageState extends State<NotificationPage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0),
+        preferredSize: Size.fromHeight(size.width * .2),
         child: CustomAppBar(
           leading: InkWell(
               onTap: () {
@@ -26,7 +26,13 @@ class _NotificationPageState extends State<NotificationPage> {
                   Image.asset('assets/app_icon/app_bar_icon/arrow_left.png')),
           trailing1: InkWell(
               onTap: () {},
-              child: Image.asset('assets/app_icon/app_bar_icon/cart_grey.png')),
+              child: Container(
+                  width: size.width * .07,
+                  height: size.width * .07,
+                  child: Image.asset(
+                    'assets/app_icon/app_bar_icon/cart_grey.png',
+                    fit: BoxFit.fill,
+                  ))),
           trailing2: Container(),
           title: Text(
             'Notifications',
@@ -62,8 +68,8 @@ class _NotificationPageState extends State<NotificationPage> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
-                                height: 40,
-                                width: 40,
+                                height: size.width * .2,
+                                width: size.width * .2,
                                 child: Image.asset(
                                   'assets/app_icon/body_icon/boys.png',
                                   fit: BoxFit.fill,
@@ -73,7 +79,14 @@ class _NotificationPageState extends State<NotificationPage> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                  'You have got a new offer from \nBAFDO... '),
+                                'You have got a new offer from \nBAFDO... ',
+                                style: TextStyle(
+                                    fontFamily: 'taviraj',
+                                    color: ColorsVariables.textColor,
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: size.width * .04),
+                              ),
                             ),
                           ],
                         ),

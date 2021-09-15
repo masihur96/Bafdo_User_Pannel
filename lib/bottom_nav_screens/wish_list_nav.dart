@@ -1,9 +1,11 @@
 import 'package:bafdo/colors.dart';
+import 'package:bafdo/custom_widget/custom_appbar.dart';
 import 'package:bafdo/custom_widget/feature_category_list_tile.dart';
 import 'package:bafdo/custom_widget/product_list_tile.dart';
 import 'package:bafdo/custom_widget/red_folder_list_tile.dart';
 import 'package:bafdo/sub_pages/product_details.dart';
 import 'package:bafdo/sub_pages/wish_list_details.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 class WishListNav extends StatefulWidget {
@@ -14,9 +16,10 @@ class WishListNav extends StatefulWidget {
 }
 
 class _WishListNavState extends State<WishListNav> {
-  List<String> testList = [
+  List<String> categoryList = [
     'Wife',
     'Eid',
+    'For Children',
     'For Children',
   ];
   @override
@@ -24,30 +27,35 @@ class _WishListNavState extends State<WishListNav> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xffEFF9F9),
-      appBar: AppBar(
-        backgroundColor: Color(0xffEFF9F9),
-        elevation: 0,
-        leading: IconButton(
-          icon: Image.asset('assets/app_icon/app_bar_icon/arrow_left.png'),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Text('Wish List',
+      appBar: PreferredSize(
+        // backgroundColor: Color(0xffF7F5F5),
+        preferredSize: Size.fromHeight(size.width * .2),
+        child: CustomAppBar(
+          leading: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+                  Image.asset('assets/app_icon/app_bar_icon/arrow_left.png')),
+          trailing1: Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: InkWell(
+                onTap: () {},
+                child: Image.asset(
+                  'assets/app_icon/app_bar_icon/close.png',
+                )),
+          ),
+          trailing2: Container(),
+          title: Text(
+            'Wish List',
             style: TextStyle(
                 fontFamily: 'taviraj',
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w700,
                 color: ColorsVariables.textColor,
                 fontStyle: FontStyle.normal,
-                fontSize: size.width * .06)),
-        centerTitle: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-              icon: Image.asset('assets/app_icon/app_bar_icon/close.png'),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          )
-        ],
+                fontSize: size.width * .045),
+          ),
+        ),
       ),
       resizeToAvoidBottomInset: false,
       body: SafeArea(child: _bodyUI(context)),
@@ -64,12 +72,10 @@ class _WishListNavState extends State<WishListNav> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Divider(
-              height: size.width * .01,
-              color: Colors.grey,
-            ),
             Padding(
-              padding: EdgeInsets.only(top: 15, bottom: 15),
+              padding: EdgeInsets.only(
+                bottom: size.width * .045,
+              ),
               child: Text('Your List (3)',
                   style: TextStyle(
                       fontFamily: 'taviraj',
@@ -78,16 +84,51 @@ class _WishListNavState extends State<WishListNav> {
                       fontStyle: FontStyle.normal,
                       fontSize: size.width * .04)),
             ),
-            Container(
-                width: size.width,
-                child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => WishListDetails()));
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: size.width,
+                  // height: size.width,
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: size.width * .02,
+                        childAspectRatio: .7),
+                    physics: ClampingScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: categoryList.length + 1,
+                    itemBuilder: (context, index) {
+                      if (categoryList.length == index) {
+                        return Padding(
+                          padding: EdgeInsets.only(
+                              bottom: size.width * .13,
+                              top: size.width * .013,
+                              right: size.width * .013,
+                              left: size.width * .013),
+                          child: DottedBorder(
+                            borderType: BorderType.RRect,
+                            radius: Radius.circular(size.width * .02),
+                            child: Center(
+                                child: Icon(Icons.add, size: size.width * .12)),
+                          ),
+                        );
+                      }
+
+                      return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => WishListDetails()));
+                            print(index);
+                          },
+                          child: getRedFolder(context, categoryList, index));
                     },
-                    child: getRedFolder(context, testList))),
+                  ),
+                ),
+              ],
+            ),
             Divider(
               color: Colors.grey,
               height: size.width * .01,
@@ -117,55 +158,35 @@ class _WishListNavState extends State<WishListNav> {
                 physics: ClampingScrollPhysics(),
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  if (index != 3 - 1) {
-                    return Container(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: size.width * .035,
-                          ),
-                          InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ProductDetail()));
-                              },
-                              child: getProductDemo(context)),
-                          SizedBox(
-                            height: size.width * .035,
-                          ),
-                          Container(
-                            width: size.width,
-                            child: Divider(
-                              color: Color(0xffA7A6A8),
-                              height: size.width * .01,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  }
-                  return Column(
-                    children: [
-                      SizedBox(
-                        height: size.width * .035,
-                      ),
-                      InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductDetail()));
-                          },
-                          child: getProductDemo(context)),
-                      SizedBox(
-                        height: size.width * .06,
-                      ),
-                    ],
+                  return Container(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: size.width * .035,
+                        ),
+                        InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProductDetail()));
+                            },
+                            child: getProductDemo(context)),
+                        SizedBox(
+                          height: size.width * .035,
+                        ),
+                        Divider(
+                          color: Color(0xffA7A6A8),
+                          height: size.width * .01,
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),
+            ),
+            SizedBox(
+              height: size.width * .03,
             ),
             Row(
               children: [
@@ -192,7 +213,6 @@ class _WishListNavState extends State<WishListNav> {
               height: size.width * .03,
             ),
             Container(
-              height: size.width * .5,
               width: size.width,
               child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -202,11 +222,14 @@ class _WishListNavState extends State<WishListNav> {
                       childAspectRatio: .79),
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 4,
+                  itemCount: 2,
                   itemBuilder: (context, index) {
                     return FeatureCategoryListTile();
                   }),
-            )
+            ),
+            SizedBox(
+              height: size.width * .3,
+            ),
           ],
         ),
       ),

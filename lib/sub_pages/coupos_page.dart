@@ -36,7 +36,9 @@ class _CouponsPageState extends State<CouponsPage>
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0),
+        preferredSize: Size.fromHeight(
+          size.width * .2,
+        ),
         child: CustomAppBar(
           leading: InkWell(
               onTap: () {
@@ -52,7 +54,7 @@ class _CouponsPageState extends State<CouponsPage>
                 InkWell(
                   onTap: () {},
                   child: CircleAvatar(
-                    radius: 17,
+                    radius: size.width * .05,
                     child: Image.asset(
                       'assets/app_icon/body_icon/cart.png',
                     ),
@@ -63,8 +65,8 @@ class _CouponsPageState extends State<CouponsPage>
                   right: 0,
                   child: Container(
                     alignment: Alignment.center,
-                    width: size.width * .03,
-                    height: size.width * .03,
+                    width: size.width * .04,
+                    height: size.width * .04,
                     decoration: BoxDecoration(
                       color: Colors.pink,
                       shape: BoxShape.circle,

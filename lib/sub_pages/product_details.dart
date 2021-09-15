@@ -1,4 +1,6 @@
+import 'package:bafdo/bottom_nav_screens/wish_list_nav.dart';
 import 'package:bafdo/colors.dart';
+import 'package:bafdo/custom_widget/custom_appbar.dart';
 import 'package:bafdo/custom_widget/feature_category_list_tile.dart';
 import 'package:bafdo/custom_widget/review_list_tile.dart';
 import 'package:bafdo/home.dart';
@@ -17,32 +19,23 @@ class ProductDetail extends StatefulWidget {
 }
 
 class _ProductDetailState extends State<ProductDetail> {
-  int _selected_color = 1;
-  String _seleted_size = 'S';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xffEFF9F9),
-        elevation: 0,
-        leading: IconButton(
-          icon: Image.asset('assets/app_icon/app_bar_icon/arrow_left.png'),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Text('Product Details',
-            style: TextStyle(
-                fontFamily: 'taviraj',
-                fontWeight: FontWeight.bold,
-                color: ColorsVariables.textColor,
-                fontStyle: FontStyle.normal,
-                fontSize: size.width * .06)),
-        centerTitle: true,
-        actions: [
-          PopupMenuButton(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(75),
+        child: CustomAppBar(
+          leading: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+                  Image.asset('assets/app_icon/app_bar_icon/arrow_left.png')),
+          trailing1: PopupMenuButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(8.0))),
-              offset: Offset(0, kToolbarHeight),
+              offset: Offset(0, 75),
               icon: Image.asset(
                 'assets/app_icon/body_icon/pink_vertical_more.png',
                 scale: .8,
@@ -137,41 +130,57 @@ class _ProductDetailState extends State<ProductDetail> {
                       value: 1,
                     ),
                     PopupMenuItem(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 2),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Image.asset(
-                                  'assets/app_icon/body_icon/favorite.png',
-                                  scale: .7,
-                                ),
-                                SizedBox(
-                                  width: 30,
-                                ),
-                                Text(
-                                  "Wishlist",
-                                  style: TextStyle(
-                                      fontFamily: 'taviraj',
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.grey,
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: size.width * .045),
-                                ),
-                              ],
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => WishListNav()));
+                        },
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 2),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    'assets/app_icon/body_icon/favorite.png',
+                                    scale: .7,
+                                  ),
+                                  SizedBox(
+                                    width: 30,
+                                  ),
+                                  Text(
+                                    "Wishlist",
+                                    style: TextStyle(
+                                        fontFamily: 'taviraj',
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.grey,
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: size.width * .045),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                        ],
+                            SizedBox(
+                              height: 8,
+                            ),
+                          ],
+                        ),
                       ),
                       value: 1,
                     ),
-                  ])
-        ],
+                  ]),
+          trailing2: Container(),
+          title: Text(
+            'Product Details',
+            style: TextStyle(
+                fontFamily: 'taviraj',
+                fontWeight: FontWeight.w500,
+                color: ColorsVariables.textColor,
+                fontStyle: FontStyle.normal,
+                fontSize: size.width * .045),
+          ),
+        ),
       ),
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -694,11 +703,9 @@ class _ProductDetailState extends State<ProductDetail> {
                     Container(
                       width: size.width,
                       color: Color(0xffF1F9F9),
-                      padding: EdgeInsets.fromLTRB(
-                          size.width * .045,
-                          size.width * .045,
-                          size.width * .045,
-                          size.width * .045),
+                      padding: EdgeInsets.all(
+                        size.width * .045,
+                      ),
                       child: Column(
                         children: [
                           Text(
@@ -725,7 +732,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Frequently bought together',
+                            'Frequently Bought Together',
                             style: TextStyle(
                                 fontFamily: 'taviraj',
                                 color: ColorsVariables.textColor,
@@ -921,7 +928,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           clipBehavior: Clip.none,
                           children: [
                             Image.asset(
-                                'assets/app_icon/body_icon/cart_grey.png'),
+                                'assets/app_icon/app_bar_icon/cart_grey.png'),
                             Positioned(
                               right: -5,
                               top: -8,

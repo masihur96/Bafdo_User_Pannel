@@ -15,6 +15,7 @@ dependencies:
   dotted_border:
   flutter_staggered_grid_view:
   flutter_slidable:
+  device_preview:
 
   carousel_slider:
   multi_select_flutter:

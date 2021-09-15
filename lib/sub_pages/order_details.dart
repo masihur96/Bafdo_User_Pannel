@@ -20,7 +20,9 @@ class _OrderDetailsState extends State<OrderDetails> {
       backgroundColor: Color(0xffF9F6F6),
       appBar: PreferredSize(
         // backgroundColor: Color(0xffF7F5F5),
-        preferredSize: Size.fromHeight(80.0),
+        preferredSize: Size.fromHeight(
+          size.width * .25,
+        ),
         child: CustomAppBar(
           leading: InkWell(
               onTap: () {
@@ -273,13 +275,16 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       fontWeight: FontWeight.bold,
                                       fontSize: size.width * .035),
                                 ),
-                                Text(
-                                  'You order has been confirmed by Bafdo',
-                                  style: TextStyle(
-                                      fontFamily: 'taviraj',
-                                      color: ColorsVariables.textColor,
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: size.width * .035),
+                                Container(
+                                  width: size.width * .6,
+                                  child: Text(
+                                    'You order has been confirmed by Bafdo',
+                                    style: TextStyle(
+                                        fontFamily: 'taviraj',
+                                        color: ColorsVariables.textColor,
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: size.width * .035),
+                                  ),
                                 ),
                               ],
                             ),
@@ -326,7 +331,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 20),
                                           child: Container(
-                                            height: size.width * .12,
+                                            height: size.width * .15,
                                             color: Colors.grey,
                                             width: 2,
                                           ),
@@ -346,12 +351,16 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               fontWeight: FontWeight.bold,
                                               fontSize: size.width * .035),
                                         ),
-                                        Text(
-                                          'Your order is ready to shipped.Product will be \nrecieved within 48 hours.',
-                                          style: TextStyle(
-                                              fontFamily: 'poppins',
-                                              color: ColorsVariables.textColor,
-                                              fontSize: size.width * .035),
+                                        Container(
+                                          width: size.width * .6,
+                                          child: Text(
+                                            'Your order is ready to shipped. Product will be recieved within 48 hours.',
+                                            style: TextStyle(
+                                                fontFamily: 'poppins',
+                                                color:
+                                                    ColorsVariables.textColor,
+                                                fontSize: size.width * .035),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -398,7 +407,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                                                     const EdgeInsets.symmetric(
                                                         horizontal: 20),
                                                 child: Container(
-                                                  height: size.width * .12,
+                                                  height: size.width * .18,
                                                   color: Colors.grey,
                                                   width: 2,
                                                 ),
@@ -422,14 +431,17 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                               Column(
                                                 children: [
-                                                  Text(
-                                                    'Your order has been shipped by deliver \npartner with tracking number',
-                                                    style: TextStyle(
-                                                        fontFamily: 'poppins',
-                                                        color: ColorsVariables
-                                                            .textColor,
-                                                        fontSize:
-                                                            size.width * .035),
+                                                  Container(
+                                                    width: size.width * .6,
+                                                    child: Text(
+                                                      'Your order has been shipped by deliver partner with tracking number',
+                                                      style: TextStyle(
+                                                          fontFamily: 'poppins',
+                                                          color: ColorsVariables
+                                                              .textColor,
+                                                          fontSize: size.width *
+                                                              .035),
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -525,14 +537,17 @@ class _OrderDetailsState extends State<OrderDetails> {
                                                     fontSize:
                                                         size.width * .035),
                                               ),
-                                              Text(
-                                                'Your order has been successfully delivered \nby E-courier',
-                                                style: TextStyle(
-                                                    fontFamily: 'poppins',
-                                                    color: ColorsVariables
-                                                        .textColor,
-                                                    fontSize:
-                                                        size.width * .035),
+                                              Container(
+                                                width: size.width * .6,
+                                                child: Text(
+                                                  'Your order has been successfully delivered by E-courier',
+                                                  style: TextStyle(
+                                                      fontFamily: 'poppins',
+                                                      color: ColorsVariables
+                                                          .textColor,
+                                                      fontSize:
+                                                          size.width * .035),
+                                                ),
                                               ),
                                             ],
                                           ),

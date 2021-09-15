@@ -81,286 +81,109 @@ class _FeatureCategoryListTileState extends State<FeatureCategoryListTile> {
                           fontFamily: 'taviraj',
                           color: ColorsVariables.textColor,
                           fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                           fontSize: size.width * .03),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: Image.asset(
-                                          'assets/app_icon/body_icon/tk.png',
-                                        ),
+                  Stack(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 7),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Image.asset(
+                                        'assets/app_icon/body_icon/tk.png',
                                       ),
-                                      Text(
-                                        '15',
-                                        style: TextStyle(
-                                            fontFamily: 'taviraj',
-                                            color: ColorsVariables.textColor,
-                                            fontStyle: FontStyle.normal,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: size.width * .05),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: size.width * .01,
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Image.asset(
-                                        'assets/app_icon/body_icon/tk_grey.png',
-                                      ),
-                                      Text(
-                                        '18',
-                                        style: TextStyle(
-                                            fontFamily: 'taviraj',
-                                            color: Colors.grey,
-                                            fontStyle: FontStyle.normal,
-                                            fontWeight: FontWeight.bold,
-                                            decoration:
-                                                TextDecoration.lineThrough,
-                                            fontSize: size.width * .04),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 5, bottom: 5),
-                                child: Row(
+                                    ),
+                                    Text(
+                                      '15',
+                                      style: TextStyle(
+                                          fontFamily: 'taviraj',
+                                          color: ColorsVariables.textColor,
+                                          fontStyle: FontStyle.normal,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: size.width * .05),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: size.width * .01,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Image.asset(
-                                      'assets/app_icon/body_icon/star.png',
-                                      scale: .7,
+                                      'assets/app_icon/body_icon/tk_grey.png',
                                     ),
-                                    Image.asset(
-                                        'assets/app_icon/body_icon/star.png',
-                                        scale: .7),
-                                    Image.asset(
-                                        'assets/app_icon/body_icon/star.png',
-                                        scale: .7),
-                                    Image.asset(
-                                        'assets/app_icon/body_icon/star.png',
-                                        scale: .7),
-                                    Image.asset(
-                                        'assets/app_icon/body_icon/star.png',
-                                        scale: .7),
                                     Text(
-                                      '  (101)',
+                                      '18',
                                       style: TextStyle(
                                           fontFamily: 'taviraj',
                                           color: Colors.grey,
                                           fontStyle: FontStyle.normal,
                                           fontWeight: FontWeight.bold,
-                                          fontSize: size.width * .03),
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                          fontSize: size.width * .04),
                                     ),
                                   ],
                                 ),
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 5, bottom: 5),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/app_icon/body_icon/star.png',
+                                    scale: .7,
+                                  ),
+                                  Image.asset(
+                                      'assets/app_icon/body_icon/star.png',
+                                      scale: .7),
+                                  Image.asset(
+                                      'assets/app_icon/body_icon/star.png',
+                                      scale: .7),
+                                  Image.asset(
+                                      'assets/app_icon/body_icon/star.png',
+                                      scale: .7),
+                                  Image.asset(
+                                      'assets/app_icon/body_icon/star.png',
+                                      scale: .7),
+                                  Text(
+                                    '  (101)',
+                                    style: TextStyle(
+                                        fontFamily: 'taviraj',
+                                        color: Colors.grey,
+                                        fontStyle: FontStyle.normal,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: size.width * .03),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: size.width * .05,
-                          ),
-                          Icon(
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                          right: 10,
+                          bottom: 20,
+                          child: Icon(
                             Icons.add_circle_outline,
                             size: size.width * .08,
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class FeatureCategoryListLongTile extends StatefulWidget {
-  const FeatureCategoryListLongTile({Key? key}) : super(key: key);
-
-  @override
-  _FeatureCategoryListLongTileState createState() =>
-      _FeatureCategoryListLongTileState();
-}
-
-class _FeatureCategoryListLongTileState
-    extends State<FeatureCategoryListLongTile> {
-  bool favorite = false;
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
-      ),
-      elevation: 8,
-      child: Container(
-        decoration:
-            BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(15))),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: size.width * .35,
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
-                child: Stack(children: [
-                  Center(
-                    child: Image.asset(
-                      'assets/app_icon/body_icon/traditional_product.png',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Positioned(
-                    right: 10,
-                    top: 10,
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          favorite = !favorite;
-                        });
-                      },
-                      child: Image.asset(
-                        'assets/app_icon/body_icon/favorite.png',
-                        color: favorite == false ? Colors.grey : Colors.pink,
-                      ),
-                    ),
-                  )
-                ]),
-              ),
-            ),
-            Image.asset(
-              'assets/app_icon/body_icon/faster_icon.png',
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 5,
-              ),
-              child: Text(
-                'Game controller gami...',
-                style: TextStyle(
-                    fontFamily: 'taviraj',
-                    color: ColorsVariables.textColor,
-                    fontStyle: FontStyle.normal,
-                    fontWeight: FontWeight.bold,
-                    fontSize: size.width * .03),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                'assets/app_icon/body_icon/tk.png',
-                              ),
-                              Text(
-                                '15',
-                                style: TextStyle(
-                                    fontFamily: 'taviraj',
-                                    color: ColorsVariables.textColor,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: size.width * .05),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: size.width * .01,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                'assets/app_icon/body_icon/tk_grey.png',
-                              ),
-                              Text(
-                                '18',
-                                style: TextStyle(
-                                    fontFamily: 'taviraj',
-                                    color: Colors.grey,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.lineThrough,
-                                    fontSize: size.width * .04),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            'assets/app_icon/body_icon/star.png',
-                            scale: .7,
-                          ),
-                          Image.asset('assets/app_icon/body_icon/star.png',
-                              scale: .7),
-                          Image.asset('assets/app_icon/body_icon/star.png',
-                              scale: .7),
-                          Image.asset('assets/app_icon/body_icon/star.png',
-                              scale: .7),
-                          Image.asset('assets/app_icon/body_icon/star.png',
-                              scale: .7),
-                          Text(
-                            '  (101)',
-                            style: TextStyle(
-                                fontFamily: 'taviraj',
-                                color: Colors.grey,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                fontSize: size.width * .03),
-                          ),
-                        ],
-                      ),
+                          ))
                     ],
                   ),
-                  SizedBox(
-                    width: size.width * .05,
-                  ),
-                  Icon(
-                    Icons.add_circle_outline,
-                    size: size.width * .08,
-                  )
                 ],
               ),
             ),
@@ -587,9 +410,9 @@ Widget getFavoriteOfferCard(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(5.0),
               child: Container(
-                height: size.width * .2,
+                height: size.width * .18,
                 decoration: BoxDecoration(
                     color: Colors.grey.shade100,
                     borderRadius: BorderRadius.all(Radius.circular(15))),
@@ -628,8 +451,8 @@ Widget getFeatureCard(BuildContext context) {
     padding: const EdgeInsets.all(8.0),
     child: Stack(children: [
       Container(
-        width: size.width * .4,
-        height: size.width * .25,
+        width: size.width * .6,
+        height: size.width * .3,
         decoration: BoxDecoration(
             color: Colors.grey.shade100,
             borderRadius: BorderRadius.all(Radius.circular(15))),
@@ -638,9 +461,8 @@ Widget getFeatureCard(BuildContext context) {
           fit: BoxFit.fill,
         ),
       ),
-      Positioned(
-        top: size.width * .07,
-        left: size.width * .05,
+      Positioned.fill(
+        top: size.width * .1,
         child: Column(
           children: [
             Text(

@@ -32,15 +32,13 @@ class _RecentlyViewesTileState extends State<RecentlyViewesTile> {
             ),
           ),
           Card(
-            child: Expanded(
-              child: ListView.builder(
-                physics: ClampingScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return recentDateListTile(index);
-                },
-              ),
+            child: ListView.builder(
+              physics: ClampingScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return recentDateListTile(index);
+              },
             ),
           ),
         ],
@@ -52,100 +50,117 @@ class _RecentlyViewesTileState extends State<RecentlyViewesTile> {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
-        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: size.width * .2,
-                  width: size.width * .2,
-                  decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      'assets/app_icon/body_icon/joy_stick.png',
+        Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+          Container(
+            width: size.width * .95,
+            child: Stack(
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: size.width * .2,
+                        width: size.width * .2,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade100,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            'assets/app_icon/body_icon/joy_stick.png',
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Gaming Controller for PC',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              fontWeight: FontWeight.w600,
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .04),
+                        ),
+                        Image.asset(
+                            'assets/app_icon/body_icon/faster_icon.png'),
+                        Row(
+                          children: [
+                            Image.asset('assets/app_icon/body_icon/tk.png'),
+                            Text(
+                              '15.99',
+                              style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  fontWeight: FontWeight.bold,
+                                  color: ColorsVariables.textColor,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .04),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
                 ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Gaming Controller for PC',
-                    style: TextStyle(
-                        fontFamily: 'taviraj',
-                        fontWeight: FontWeight.bold,
-                        color: ColorsVariables.textColor,
-                        fontStyle: FontStyle.normal,
-                        fontSize: size.width * .04),
-                  ),
-                  Image.asset('assets/app_icon/body_icon/faster_icon.png'),
-                  Row(
+                Positioned(
+                  right: 0,
+                  bottom: 5,
+                  child: Column(
                     children: [
-                      Image.asset('assets/app_icon/body_icon/tk.png'),
-                      Text(
-                        '15.99',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            fontWeight: FontWeight.bold,
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .04),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              InkWell(
-                  onTap: () {
-                    setState(() {
-                      subListIndex.remove(index);
-                    });
-
-                    print(subListIndex);
-                  },
-                  child: subListIndex.contains(index)
-                      ? Image.asset(
-                          'assets/app_icon/body_icon/squire_pink_box.png')
-                      : InkWell(
+                      InkWell(
                           onTap: () {
                             setState(() {
-                              subListIndex.add(index);
+                              subListIndex.remove(index);
                             });
 
                             print(subListIndex);
                           },
-                          child: Image.asset(
-                              'assets/app_icon/body_icon/squire_grey_box.png'))),
-              GradientButton(
-                onPressed: () {
-                  // Navigator.push(
-                  //     context, MaterialPageRoute(builder: (context) => OTPPage()));
-                },
-                child: Text(
-                  'Add To Cart',
-                  style: TextStyle(
-                      fontFamily: 'taviraj',
-                      fontWeight: FontWeight.bold,
-                      color: ColorsVariables.splashSkip,
-                      fontStyle: FontStyle.normal,
-                      fontSize: size.width * .035),
-                ),
-                borderRadius: 15,
-                height: size.width * .075,
-                width: size.width * .25,
-                gradientColors: [Colors.pink.shade600, Colors.pink.shade400],
-              ),
-            ],
+                          child: subListIndex.contains(index)
+                              ? Image.asset(
+                                  'assets/app_icon/body_icon/squire_pink_box.png')
+                              : InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      subListIndex.add(index);
+                                    });
+
+                                    print(subListIndex);
+                                  },
+                                  child: Image.asset(
+                                      'assets/app_icon/body_icon/squire_grey_box.png'))),
+                      GradientButton(
+                        onPressed: () {
+                          // Navigator.push(
+                          //     context, MaterialPageRoute(builder: (context) => OTPPage()));
+                        },
+                        child: Text(
+                          'Add To Cart',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              fontWeight: FontWeight.bold,
+                              color: ColorsVariables.splashSkip,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
+                        borderRadius: 15,
+                        height: size.width * .075,
+                        width: size.width * .25,
+                        gradientColors: [
+                          Colors.pink.shade600,
+                          Colors.pink.shade400
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ]),
         Container(

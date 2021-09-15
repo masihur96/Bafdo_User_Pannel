@@ -22,6 +22,11 @@ class _ProductPageState extends State<ProductPage> {
   Timer? _timer;
   int seconds = 0;
 
+  String? endingHours = '00';
+  String? endingMinute = '00';
+
+  String? endingSecond = '00';
+
   @override
   void initState() {
     // TODO: implement initState
@@ -98,31 +103,16 @@ class _ProductPageState extends State<ProductPage> {
                                 width: 2.0,
                                 color: Color.fromRGBO(0, 0, 0, 0.1)),
                             borderRadius: new BorderRadius.circular(6.97)),
-                        child: TextField(
-                          // inputFormatters: [
-                          //   LengthLimitingTextInputFormatter(1),
-                          // ],
-
-                          controller: controller1,
-                          autofocus: false,
-                          enabled: false,
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            hintText: '00',
-                            hintStyle: TextStyle(
-                                fontFamily: 'taviraj',
-                                fontWeight: FontWeight.w500,
-                                color: ColorsVariables.textColor,
-                                fontStyle: FontStyle.normal,
-                                fontSize: size.width * .03),
-                          ),
+                        child: Center(
+                            child: Text(
+                          endingSecond!,
                           style: TextStyle(
-                              fontFamily: 'taviraj',
-                              color: ColorsVariables.textColor,
+                              fontFamily: 'poppins',
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
                               fontStyle: FontStyle.normal,
-                              fontSize: size.width * .06),
-                        ),
+                              fontSize: size.width * .04),
+                        )),
                       ),
                       Text(' : '),
                       Container(
@@ -135,29 +125,16 @@ class _ProductPageState extends State<ProductPage> {
                                 width: 2.0,
                                 color: Color.fromRGBO(0, 0, 0, 0.1)),
                             borderRadius: new BorderRadius.circular(6.97)),
-                        child: TextField(
-                            // inputFormatters: [
-                            //   LengthLimitingTextInputFormatter(1),
-                            // ],
-                            controller: controller2,
-                            autofocus: false,
-                            enabled: false,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              hintText: '00',
-                              hintStyle: TextStyle(
-                                  fontFamily: 'poppins',
-                                  fontWeight: FontWeight.w500,
-                                  color: ColorsVariables.textColor,
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: size.width * .03),
-                            ),
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontFamily: 'taviraj',
-                                color: ColorsVariables.textColor,
-                                fontStyle: FontStyle.normal,
-                                fontSize: size.width * .06)),
+                        child: Center(
+                            child: Text(
+                          endingSecond!,
+                          style: TextStyle(
+                              fontFamily: 'poppins',
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .04),
+                        )),
                       ),
                       Text(' : '),
                       Container(
@@ -170,28 +147,16 @@ class _ProductPageState extends State<ProductPage> {
                                 width: 2.0,
                                 color: Color.fromRGBO(0, 0, 0, 0.1)),
                             borderRadius: new BorderRadius.circular(6.97)),
-                        child: TextField(
-                            // inputFormatters: [
-                            //   LengthLimitingTextInputFormatter(1),
-                            // ],
-                            controller: controller3,
-                            autofocus: false,
-                            enabled: false,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                                hintText: '00',
-                                hintStyle: TextStyle(
-                                    fontFamily: 'poppins',
-                                    fontWeight: FontWeight.w600,
-                                    color: ColorsVariables.textColor,
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: size.width * .03)),
-                            style: TextStyle(
-                                fontFamily: 'taviraj',
-                                color: ColorsVariables.textColor,
-                                fontStyle: FontStyle.normal,
-                                fontSize: size.width * .06)),
+                        child: Center(
+                            child: Text(
+                          endingSecond!,
+                          style: TextStyle(
+                              fontFamily: 'poppins',
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .04),
+                        )),
                       ),
                     ],
                   ),
@@ -214,126 +179,128 @@ class _ProductPageState extends State<ProductPage> {
           trailing2: Container(),
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 5, right: 5, top: 2, bottom: 2),
-                      child: Text(
-                        'Boi mela',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .035),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5, right: 5, top: 2, bottom: 2),
+                        child: Text(
+                          'Boi mela',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 5, right: 5, top: 2, bottom: 2),
-                      child: Text(
-                        'Controller',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .035),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5, right: 5, top: 2, bottom: 2),
+                        child: Text(
+                          'Controller',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 5, right: 5, top: 2, bottom: 2),
-                      child: Text(
-                        'Bijoy Mela',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .035),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5, right: 5, top: 2, bottom: 2),
+                        child: Text(
+                          'Bijoy Mela',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 5, right: 5, top: 2, bottom: 2),
-                      child: Text(
-                        'Gaming Controller',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .035),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5, right: 5, top: 2, bottom: 2),
+                        child: Text(
+                          'Gaming Controller',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(5),
-            child: Divider(
-              height: 4,
-              color: Colors.grey,
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Divider(
+                height: 4,
+                color: Colors.grey,
+              ),
             ),
-          ),
-          seconds < 3
-              ? Container(
-                  height: 500,
-                  width: size.width,
-                  child: new StaggeredGridView.countBuilder(
-                    crossAxisCount: 4,
-                    itemCount: 8,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Image.asset(
-                          'assets/app_icon/body_icon/loading_icon.png');
-                    },
-                    staggeredTileBuilder: (int index) =>
-                        new StaggeredTile.count(2, index.isEven ? 2 : 1),
-                    mainAxisSpacing: 4.0,
-                    crossAxisSpacing: 4.0,
-                  ),
-                )
-              : _pages(context)
-        ],
+            seconds < 3
+                ? Container(
+                    height: 500,
+                    width: size.width,
+                    child: new StaggeredGridView.countBuilder(
+                      crossAxisCount: 4,
+                      itemCount: 8,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Image.asset(
+                            'assets/app_icon/body_icon/loading_icon.png');
+                      },
+                      staggeredTileBuilder: (int index) =>
+                          new StaggeredTile.count(2, index.isEven ? 2 : 1),
+                      mainAxisSpacing: 4.0,
+                      crossAxisSpacing: 4.0,
+                    ),
+                  )
+                : _pages(context)
+          ],
+        ),
       ),
     );
   }

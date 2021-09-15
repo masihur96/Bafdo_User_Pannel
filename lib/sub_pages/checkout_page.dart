@@ -67,7 +67,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 width: size.width,
                 child: ListView.builder(
                   // scrollDirection: Axis.vertical,
-                  // physics: NeverScrollableScrollPhysics(),
+                  physics: NeverScrollableScrollPhysics(),
                   itemCount: 2,
                   itemBuilder: (context, index) {
                     return _checkoutListTile(index);
@@ -142,8 +142,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Image.asset(
-                                'assets/app_icon/body_icon/bkash_logo.png'),
+                            child: Container(
+                              height: size.width * .15,
+                              width: size.width * .15,
+                              child: Image.asset(
+                                'assets/app_icon/body_icon/bkash_logo.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -166,8 +172,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Image.asset(
-                                'assets/app_icon/body_icon/ssl_logo.png'),
+                            child: Container(
+                              height: size.width * .15,
+                              width: size.width * .15,
+                              child: Image.asset(
+                                'assets/app_icon/body_icon/ssl_logo.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
                           ),
                         ],
                       ),

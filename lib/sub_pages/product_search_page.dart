@@ -1,7 +1,9 @@
 import 'package:bafdo/colors.dart';
+import 'package:bafdo/custom_widget/custom_appbar.dart';
 import 'package:bafdo/custom_widget/feature_category_list_tile.dart';
 import 'package:bafdo/sub_pages/product_search_filtered_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ProductSearchPage extends StatefulWidget {
   const ProductSearchPage({Key? key}) : super(key: key);
@@ -20,62 +22,17 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xffEFF9F9),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Color(0xffEFF9F9),
-        leading: IconButton(
-          icon: Image.asset('assets/app_icon/app_bar_icon/arrow_left.png'),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Container(
-          width: size.width,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(size.width * .03),
-            ),
-          ),
-          child: Padding(
-              padding: EdgeInsets.fromLTRB(size.width * .03, 0, 0, 0),
-              child: TextFormField(
-                controller: _searchController,
-                style: TextStyle(color: Colors.pink),
-                decoration: InputDecoration(
-                    focusColor: Colors.pink,
-                    hintText: 'Search product',
-                    hintStyle: TextStyle(
-                        fontFamily: 'taviraj',
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey,
-                        fontStyle: FontStyle.normal,
-                        fontSize: size.width * .04),
-                    suffixIcon: InkWell(
-                      onTap: () {
-                        setState(() {
-                          navigateDetailsWidget = 'navigateToSearchResult';
-                        });
-                      },
-                      child: Image.asset(
-                        'assets/app_icon/text_field_icon/search_icon.png',
-                        color:
-                            searchValue.isNotEmpty ? Colors.pink : Colors.grey,
-                      ),
-                    ),
-                    border: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none),
-                onChanged: (content) {
-                  setState(() {
-                    searchValue = content;
-                  });
-                },
-                cursorColor: Color(0xff131214),
-              )),
-        ),
-        centerTitle: true,
-        actions: [
-          InkWell(
+      appBar: PreferredSize(
+        // backgroundColor: Color(0xffF7F5F5),
+        preferredSize: Size.fromHeight(77.0),
+        child: CustomAppBar(
+          leading: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+                  Image.asset('assets/app_icon/app_bar_icon/arrow_left.png')),
+          trailing1: InkWell(
             onTap: () {
               showDialog(
                 context: context,
@@ -87,7 +44,57 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
               scale: .8,
             ),
           ),
-        ],
+          trailing2: Container(),
+          title: Expanded(
+            child: Container(
+              width: size.width * .7,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(size.width * .03),
+                ),
+              ),
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(size.width * .03, 0, 0, 0),
+                  child: TextFormField(
+                    controller: _searchController,
+                    style: TextStyle(color: Colors.pink),
+                    decoration: InputDecoration(
+                        focusColor: Colors.pink,
+                        hintText: 'Search product',
+                        hintStyle: TextStyle(
+                            fontFamily: 'taviraj',
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                            fontStyle: FontStyle.normal,
+                            fontSize: size.width * .04),
+                        suffixIcon: InkWell(
+                          onTap: () {
+                            setState(() {
+                              navigateDetailsWidget = 'navigateToSearchResult';
+                            });
+                          },
+                          child: Image.asset(
+                            'assets/app_icon/text_field_icon/search_icon.png',
+                            color: searchValue.isNotEmpty
+                                ? Colors.pink
+                                : Colors.grey,
+                          ),
+                        ),
+                        border: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none),
+                    onChanged: (content) {
+                      setState(() {
+                        searchValue = content;
+                      });
+                    },
+                    cursorColor: Color(0xff131214),
+                  )),
+            ),
+          ),
+        ),
       ),
       resizeToAvoidBottomInset: false,
       body: navigateDetailsWidget != 'navigateToSearchResult'
@@ -234,8 +241,8 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
             ),
           ),
           Container(
-            height: size.height * .83,
-            child: ListView(children: [
+            height: size.height * .8,
+            child: ListView(scrollDirection: Axis.vertical, children: [
               Column(
                 children: [
                   Padding(
@@ -243,7 +250,7 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        'Search results',
+                        'Search Results',
                         style: TextStyle(
                             fontFamily: 'taviraj',
                             color: ColorsVariables.textColor,
@@ -252,32 +259,19 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: size.width * 1.41,
-                          width: size.width * .45,
-                          child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: 3,
-                              itemBuilder: (context, index) {
-                                return FeatureCategoryListTile();
-                              }),
-                        ),
-                        Container(
-                          height: size.width * 1.4,
-                          width: size.width * .45,
-                          child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: 2,
-                              itemBuilder: (context, index) {
-                                return FeatureCategoryListLongTile();
-                              }),
-                        )
-                      ],
+                  Container(
+                    height: size.height * .4,
+                    width: size.width,
+                    child: new StaggeredGridView.countBuilder(
+                      crossAxisCount: 4,
+                      itemCount: 5,
+                      itemBuilder: (BuildContext context, int index) {
+                        return FeatureCategoryListTile();
+                      },
+                      staggeredTileBuilder: (int index) =>
+                          new StaggeredTile.count(2, index.isEven ? 2 : 3),
+                      mainAxisSpacing: 4.0,
+                      crossAxisSpacing: 4.0,
                     ),
                   ),
                   Padding(
@@ -307,34 +301,21 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: size.width * 1.4,
-                          width: size.width * .45,
-                          child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: 3,
-                              itemBuilder: (context, index) {
-                                return FeatureCategoryListTile();
-                              }),
-                        ),
-                        Container(
-                          height: size.width * 1.4,
-                          width: size.width * .45,
-                          child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: 2,
-                              itemBuilder: (context, index) {
-                                return FeatureCategoryListLongTile();
-                              }),
-                        )
-                      ],
+                  Container(
+                    height: size.height * .4,
+                    width: size.width,
+                    child: new StaggeredGridView.countBuilder(
+                      crossAxisCount: 4,
+                      itemCount: 5,
+                      itemBuilder: (BuildContext context, int index) {
+                        return FeatureCategoryListTile();
+                      },
+                      staggeredTileBuilder: (int index) =>
+                          new StaggeredTile.count(2, index.isEven ? 2 : 3),
+                      mainAxisSpacing: 4.0,
+                      crossAxisSpacing: 4.0,
                     ),
-                  )
+                  ),
                 ],
               ),
             ]),
@@ -351,8 +332,51 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
       child: ListView(scrollDirection: Axis.vertical, children: [
         Column(
           children: [
+            _searchController.text == ''
+                ? Container()
+                : Padding(
+                    padding: EdgeInsets.only(top: 0, bottom: 10),
+                    child: Container(
+                      width: size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(9))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Suggestions',
+                              style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  color: Colors.grey,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .04),
+                            ),
+                            Divider(
+                              height: 2,
+                              color: Colors.grey,
+                            ),
+                            Container(
+                              height: size.width * .25,
+                              child: ListView.builder(
+                                itemCount: 6,
+                                itemBuilder: (context, i) {
+                                  return Container(
+                                    child: Text('Gaming Controller for pc'),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
             Padding(
-              padding: EdgeInsets.only(top: 10, bottom: 10),
+              padding: EdgeInsets.only(top: 0, bottom: 10),
               child: Container(
                 width: size.width,
                 height: size.width * .4,
@@ -367,7 +391,7 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Recent search',
+                        'Recent Search',
                         style: TextStyle(
                             fontFamily: 'taviraj',
                             color: Colors.grey,

@@ -73,13 +73,14 @@ class _LoginWithNumberState extends State<LoginWithNumber> {
               ),
               SizedBox(height: size.width * .02),
               Container(
-                height: size.width * .13,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(6.97))),
                 child: Padding(
                   padding: EdgeInsets.only(left: size.width * .04),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         '+880',
@@ -92,19 +93,25 @@ class _LoginWithNumberState extends State<LoginWithNumber> {
                       Expanded(
                         child: Container(
                           padding: const EdgeInsets.only(left: 5),
-                          height: size.width * .1,
-                          child: TextField(
-                            controller: controller,
-                            keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              hintText: 'Mobile Number',
-                              hintStyle: TextStyle(
-                                  fontFamily: 'taviraj',
-                                  fontWeight: FontWeight.normal,
-                                  color: ColorsVariables.dividerColor,
-                                  fontSize: size.width * .035),
+                          // height: size.width * .2,
+                          child: Center(
+                            child: TextField(
+                              controller: controller,
+                              keyboardType: TextInputType.phone,
+                              cursorColor: Colors.black,
+                              style: TextStyle(
+                                  color: ColorsVariables.textColor,
+                                  fontSize: size.width * .04),
+                              decoration: InputDecoration(
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                hintText: 'Mobile Number',
+                                hintStyle: TextStyle(
+                                    fontFamily: 'taviraj',
+                                    fontWeight: FontWeight.normal,
+                                    color: ColorsVariables.dividerColor,
+                                    fontSize: size.width * .04),
+                              ),
                             ),
                           ),
                         ),
@@ -162,7 +169,7 @@ class _LoginWithNumberState extends State<LoginWithNumber> {
                       )),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: size.width * .15,
+                        horizontal: size.width * .10,
                         vertical: size.width * .03),
                     child: Text(
                       'Sign in with email or username',

@@ -163,10 +163,9 @@ class _MaBafdoState extends State<MaBafdo> {
           trailing2: Container(),
         ),
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Padding(
-          padding: EdgeInsets.only(left: 10, right: 10),
+      body: Padding(
+        padding: EdgeInsets.only(left: 10, right: 10),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -182,7 +181,7 @@ class _MaBafdoState extends State<MaBafdo> {
                   children: [
                     CircleAvatar(
                       backgroundColor: Colors.pink.shade400,
-                      radius: 20,
+                      radius: size.width * .04,
                       child: Text('0%',
                           style: TextStyle(
                               color: Colors.white,
@@ -190,14 +189,16 @@ class _MaBafdoState extends State<MaBafdo> {
                               fontFamily: 'taviraj',
                               fontWeight: FontWeight.w500)),
                     ),
-                    Container(
-                      height: 5,
-                      width: size.width * .2,
-                      color: Color(0xffC31A65),
+                    Expanded(
+                      child: Container(
+                        height: 5,
+                        width: size.width * .2,
+                        color: Color(0xffC31A65),
+                      ),
                     ),
                     CircleAvatar(
                       backgroundColor: Colors.pink.shade400,
-                      radius: 20,
+                      radius: size.width * .04,
                       child: Text('25%',
                           style: TextStyle(
                               color: Colors.white,
@@ -205,14 +206,16 @@ class _MaBafdoState extends State<MaBafdo> {
                               fontFamily: 'taviraj',
                               fontWeight: FontWeight.w500)),
                     ),
-                    Container(
-                      height: 5,
-                      width: size.width * .2,
-                      color: Color(0xffC31A65),
+                    Expanded(
+                      child: Container(
+                        height: 5,
+                        width: size.width * .2,
+                        color: Color(0xffC31A65),
+                      ),
                     ),
                     CircleAvatar(
                       backgroundColor: Colors.pink.shade400,
-                      radius: 20,
+                      radius: size.width * .04,
                       child: Text('50%',
                           style: TextStyle(
                               color: Colors.white,
@@ -220,10 +223,12 @@ class _MaBafdoState extends State<MaBafdo> {
                               fontFamily: 'taviraj',
                               fontWeight: FontWeight.w500)),
                     ),
-                    Container(
-                      height: 5,
-                      width: size.width * .25,
-                      color: Colors.grey,
+                    Expanded(
+                      child: Container(
+                        height: 5,
+                        width: size.width * .25,
+                        color: Colors.grey,
+                      ),
                     ),
                   ],
                 ),
@@ -248,6 +253,7 @@ class _MaBafdoState extends State<MaBafdo> {
                         fontWeight: FontWeight.w500)),
               ),
               Container(
+                height: size.width * .15,
                 child: TextField(
                   decoration: InputDecoration(
                       border: new OutlineInputBorder(
@@ -271,7 +277,8 @@ class _MaBafdoState extends State<MaBafdo> {
                         fontWeight: FontWeight.w500)),
               ),
               Container(
-                width: size.width * .25,
+                width: size.width * .35,
+                height: size.width * .15,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     border: Border.all(width: 1, color: Colors.grey)),
@@ -302,16 +309,17 @@ class _MaBafdoState extends State<MaBafdo> {
                         fontFamily: 'taviraj',
                         fontWeight: FontWeight.w500)),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          border: Border.all(width: 1, color: Colors.grey)),
-                      child: ListTile(
-                        leading: DropdownButtonHideUnderline(
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(3.0),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            border: Border.all(width: 1, color: Colors.grey)),
+                        child: DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
                             elevation: 0,
                             dropdownColor: Colors.white,
@@ -319,6 +327,7 @@ class _MaBafdoState extends State<MaBafdo> {
                             value: _selectedYearValue,
                             style: TextStyle(
                               color: ColorsVariables.textColor,
+                              fontWeight: FontWeight.w600,
                               fontSize: size.width * .04,
                               fontFamily: 'taviraj',
                             ),
@@ -333,72 +342,74 @@ class _MaBafdoState extends State<MaBafdo> {
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: size.width * .02,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          border: Border.all(width: 1, color: Colors.grey)),
-                      child: ListTile(
-                        leading: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                            elevation: 0,
-                            dropdownColor: Colors.white,
-                            items: this._dropDownDaysItem,
-                            value: _selectedDayValue,
-                            style: TextStyle(
-                              color: ColorsVariables.textColor,
-                              fontSize: size.width * .04,
-                              fontFamily: 'taviraj',
+                    SizedBox(
+                      width: size.width * .01,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            border: Border.all(width: 1, color: Colors.grey)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              elevation: 0,
+                              dropdownColor: Colors.white,
+                              items: this._dropDownDaysItem,
+                              value: _selectedDayValue,
+                              style: TextStyle(
+                                color: ColorsVariables.textColor,
+                                fontSize: size.width * .04,
+                                fontFamily: 'taviraj',
+                              ),
+                              onChanged: (String? newValue) {
+                                if (newValue != null) {
+                                  setState(() {
+                                    _selectedDayValue = newValue;
+                                  });
+                                }
+                              },
                             ),
-                            onChanged: (String? newValue) {
-                              if (newValue != null) {
-                                setState(() {
-                                  _selectedDayValue = newValue;
-                                });
-                              }
-                            },
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: size.width * .02,
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          border: Border.all(width: 1, color: Colors.grey)),
-                      child: ListTile(
-                        leading: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                            elevation: 0,
-                            dropdownColor: Colors.white,
-                            items: this._dropDownMonthsItem,
-                            value: _selectedMothValue,
-                            style: TextStyle(
-                              color: ColorsVariables.textColor,
-                              fontSize: size.width * .04,
-                              fontFamily: 'taviraj',
+                    SizedBox(
+                      width: size.width * .005,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            border: Border.all(width: 1, color: Colors.grey)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              elevation: 0,
+                              dropdownColor: Colors.white,
+                              items: this._dropDownMonthsItem,
+                              value: _selectedMothValue,
+                              style: TextStyle(
+                                color: ColorsVariables.textColor,
+                                fontSize: size.width * .04,
+                                fontFamily: 'taviraj',
+                              ),
+                              onChanged: (String? newValue) {
+                                if (newValue != null) {
+                                  setState(() {
+                                    _selectedMothValue = newValue;
+                                  });
+                                }
+                              },
                             ),
-                            onChanged: (String? newValue) {
-                              if (newValue != null) {
-                                setState(() {
-                                  _selectedMothValue = newValue;
-                                });
-                              }
-                            },
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10, bottom: 5),
@@ -410,6 +421,7 @@ class _MaBafdoState extends State<MaBafdo> {
                         fontWeight: FontWeight.w500)),
               ),
               Container(
+                height: size.width * .15,
                 child: TextField(
                   decoration: InputDecoration(
                       suffixIcon: IconButton(
@@ -444,6 +456,7 @@ class _MaBafdoState extends State<MaBafdo> {
                         fontWeight: FontWeight.w500)),
               ),
               Container(
+                height: size.width * .15,
                 child: TextField(
                   decoration: InputDecoration(
                       suffixIcon: IconButton(
@@ -478,6 +491,7 @@ class _MaBafdoState extends State<MaBafdo> {
                         fontWeight: FontWeight.w500)),
               ),
               Container(
+                height: size.width * .15,
                 child: TextField(
                   decoration: InputDecoration(
                       suffixIcon: IconButton(
@@ -569,6 +583,7 @@ class _MaBafdoState extends State<MaBafdo> {
                       fontFamily: 'taviraj',
                       fontWeight: FontWeight.w500)),
               Container(
+                height: size.width * .15,
                 child: TextField(
                   decoration: InputDecoration(
                       border: new OutlineInputBorder(
@@ -589,6 +604,7 @@ class _MaBafdoState extends State<MaBafdo> {
                       fontFamily: 'taviraj',
                       fontWeight: FontWeight.w500)),
               Container(
+                height: size.width * .15,
                 child: TextField(
                   decoration: InputDecoration(
                       border: new OutlineInputBorder(
@@ -609,6 +625,7 @@ class _MaBafdoState extends State<MaBafdo> {
                       fontFamily: 'taviraj',
                       fontWeight: FontWeight.w500)),
               Container(
+                height: size.width * .15,
                 child: TextField(
                   decoration: InputDecoration(
                       border: new OutlineInputBorder(

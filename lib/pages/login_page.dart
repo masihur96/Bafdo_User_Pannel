@@ -33,7 +33,7 @@ class _LogInPageState extends State<LogInPage> {
           child: Column(
             //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 150),
+              SizedBox(height: size.width * .2),
 
               Text(
                 'Welcome Back',
@@ -220,7 +220,7 @@ class _LogInPageState extends State<LogInPage> {
                       )),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: size.width * .15,
+                        horizontal: size.width * .10,
                         vertical: size.width * .03),
                     child: Center(
                       child: Text(

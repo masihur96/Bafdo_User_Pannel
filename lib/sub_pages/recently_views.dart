@@ -50,8 +50,8 @@ class _RecentlyViewsState extends State<RecentlyViews> {
                   right: 0,
                   child: Container(
                     alignment: Alignment.center,
-                    width: size.width * .03,
-                    height: size.width * .03,
+                    width: size.width * .04,
+                    height: size.width * .04,
                     decoration: BoxDecoration(
                       color: Colors.pink,
                       shape: BoxShape.circle,
