@@ -16,6 +16,8 @@ dependencies:
   flutter_staggered_grid_view:
   flutter_slidable:
   device_preview:
+  motion_tab_bar_v2:
+  carousel_pro_nullsafety:
 
   carousel_slider:
   multi_select_flutter:

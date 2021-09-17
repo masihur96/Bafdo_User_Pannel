@@ -55,7 +55,12 @@ class _CategoryPageState extends State<CategoryPage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * .2),
         child: CustomAppBar(
-          leading: Image.asset('assets/app_icon/app_bar_icon/arrow_left.png'),
+          leading: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+                  Image.asset('assets/app_icon/app_bar_icon/arrow_left.png')),
           title: Text(
             'Categories',
             style: TextStyle(

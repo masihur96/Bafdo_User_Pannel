@@ -157,7 +157,12 @@ class _MaBafdoState extends State<MaBafdo> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
         child: CustomAppBar(
-          leading: Image.asset('assets/app_icon/app_bar_icon/arrow_left.png'),
+          leading: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child:
+                  Image.asset('assets/app_icon/app_bar_icon/arrow_left.png')),
           title: Text('Edit Profile'),
           trailing1: Image.asset('assets/app_icon/app_bar_icon/close.png'),
           trailing2: Container(),
@@ -327,7 +332,6 @@ class _MaBafdoState extends State<MaBafdo> {
                             value: _selectedYearValue,
                             style: TextStyle(
                               color: ColorsVariables.textColor,
-                              fontWeight: FontWeight.w600,
                               fontSize: size.width * .04,
                               fontFamily: 'taviraj',
                             ),

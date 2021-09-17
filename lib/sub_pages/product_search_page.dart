@@ -24,7 +24,7 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
       backgroundColor: Color(0xffEFF9F9),
       appBar: PreferredSize(
         // backgroundColor: Color(0xffF7F5F5),
-        preferredSize: Size.fromHeight(77.0),
+        preferredSize: Size.fromHeight(size.width * .2),
         child: CustomAppBar(
           leading: InkWell(
               onTap: () {
@@ -45,54 +45,52 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
             ),
           ),
           trailing2: Container(),
-          title: Expanded(
-            child: Container(
-              width: size.width * .7,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(size.width * .03),
-                ),
+          title: Container(
+            width: size.width * .7,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(
+                Radius.circular(size.width * .03),
               ),
-              child: Padding(
-                  padding: EdgeInsets.fromLTRB(size.width * .03, 0, 0, 0),
-                  child: TextFormField(
-                    controller: _searchController,
-                    style: TextStyle(color: Colors.pink),
-                    decoration: InputDecoration(
-                        focusColor: Colors.pink,
-                        hintText: 'Search product',
-                        hintStyle: TextStyle(
-                            fontFamily: 'taviraj',
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .04),
-                        suffixIcon: InkWell(
-                          onTap: () {
-                            setState(() {
-                              navigateDetailsWidget = 'navigateToSearchResult';
-                            });
-                          },
-                          child: Image.asset(
-                            'assets/app_icon/text_field_icon/search_icon.png',
-                            color: searchValue.isNotEmpty
-                                ? Colors.pink
-                                : Colors.grey,
-                          ),
-                        ),
-                        border: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none),
-                    onChanged: (content) {
-                      setState(() {
-                        searchValue = content;
-                      });
-                    },
-                    cursorColor: Color(0xff131214),
-                  )),
             ),
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(size.width * .03, 0, 0, 0),
+                child: TextFormField(
+                  controller: _searchController,
+                  style: TextStyle(color: Colors.pink),
+                  decoration: InputDecoration(
+                      focusColor: Colors.pink,
+                      hintText: 'Search product',
+                      hintStyle: TextStyle(
+                          fontFamily: 'taviraj',
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey,
+                          fontStyle: FontStyle.normal,
+                          fontSize: size.width * .04),
+                      suffixIcon: InkWell(
+                        onTap: () {
+                          setState(() {
+                            navigateDetailsWidget = 'navigateToSearchResult';
+                          });
+                        },
+                        child: Image.asset(
+                          'assets/app_icon/text_field_icon/search_icon.png',
+                          color: searchValue.isNotEmpty
+                              ? Colors.pink
+                              : Colors.grey,
+                        ),
+                      ),
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none),
+                  onChanged: (content) {
+                    setState(() {
+                      searchValue = content;
+                    });
+                  },
+                  cursorColor: Color(0xff131214),
+                )),
           ),
         ),
       ),
@@ -107,220 +105,222 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
     Size size = MediaQuery.of(context).size;
     int? boxColor;
     return Container(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      boxColor = 1;
-                    });
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: boxColor == 1
-                            ? Colors.pink.shade50
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 5, right: 5, top: 2, bottom: 2),
-                      child: Text(
-                        'Boi mela',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: boxColor == 1
-                                ? Colors.pink
-                                : ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .035),
-                      ),
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      boxColor = 2;
-                    });
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: boxColor == 2
-                            ? Colors.pink.shade50
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 5, right: 5, top: 2, bottom: 2),
-                      child: Text(
-                        'Controller',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: boxColor == 2
-                                ? Colors.pink
-                                : ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .035),
-                      ),
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      boxColor = 3;
-                    });
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: boxColor == 3
-                            ? Colors.pink.shade50
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 5, right: 5, top: 2, bottom: 2),
-                      child: Text(
-                        'Bijoy Mela',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: boxColor == 3
-                                ? Colors.pink
-                                : ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .035),
-                      ),
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      boxColor = 4;
-                    });
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: boxColor == 4
-                            ? Colors.pink.shade50
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 5, right: 5, top: 2, bottom: 2),
-                      child: Text(
-                        'Gaming Controller',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: boxColor == 4
-                                ? Colors.pink
-                                : ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .035),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(5),
-            child: Divider(
-              height: 4,
-              color: Colors.grey,
-            ),
-          ),
-          Container(
-            height: size.height * .8,
-            child: ListView(scrollDirection: Axis.vertical, children: [
-              Column(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'Search Results',
-                        style: TextStyle(
-                            fontFamily: 'taviraj',
-                            color: ColorsVariables.textColor,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .045),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        boxColor = 1;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: boxColor == 1
+                              ? Colors.pink.shade50
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5, right: 5, top: 2, bottom: 2),
+                        child: Text(
+                          'Boi mela',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: boxColor == 1
+                                  ? Colors.pink
+                                  : ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    height: size.height * .4,
-                    width: size.width,
-                    child: new StaggeredGridView.countBuilder(
-                      crossAxisCount: 4,
-                      itemCount: 5,
-                      itemBuilder: (BuildContext context, int index) {
-                        return FeatureCategoryListTile();
-                      },
-                      staggeredTileBuilder: (int index) =>
-                          new StaggeredTile.count(2, index.isEven ? 2 : 3),
-                      mainAxisSpacing: 4.0,
-                      crossAxisSpacing: 4.0,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Related product',
-                            style: TextStyle(
-                                fontFamily: 'taviraj',
-                                color: ColorsVariables.textColor,
-                                fontStyle: FontStyle.normal,
-                                fontSize: size.width * .045),
-                          ),
-                          Text(
-                            'See More',
-                            style: TextStyle(
-                                fontFamily: 'taviraj',
-                                color: ColorsVariables.textColor,
-                                fontStyle: FontStyle.normal,
-                                fontSize: size.width * .045),
-                          ),
-                        ],
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        boxColor = 2;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: boxColor == 2
+                              ? Colors.pink.shade50
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5, right: 5, top: 2, bottom: 2),
+                        child: Text(
+                          'Controller',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: boxColor == 2
+                                  ? Colors.pink
+                                  : ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    height: size.height * .4,
-                    width: size.width,
-                    child: new StaggeredGridView.countBuilder(
-                      crossAxisCount: 4,
-                      itemCount: 5,
-                      itemBuilder: (BuildContext context, int index) {
-                        return FeatureCategoryListTile();
-                      },
-                      staggeredTileBuilder: (int index) =>
-                          new StaggeredTile.count(2, index.isEven ? 2 : 3),
-                      mainAxisSpacing: 4.0,
-                      crossAxisSpacing: 4.0,
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        boxColor = 3;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: boxColor == 3
+                              ? Colors.pink.shade50
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5, right: 5, top: 2, bottom: 2),
+                        child: Text(
+                          'Bijoy Mela',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: boxColor == 3
+                                  ? Colors.pink
+                                  : ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        boxColor = 4;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: boxColor == 4
+                              ? Colors.pink.shade50
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 5, right: 5, top: 2, bottom: 2),
+                        child: Text(
+                          'Gaming Controller',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: boxColor == 4
+                                  ? Colors.pink
+                                  : ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .035),
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-            ]),
-          ),
-        ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Divider(
+                height: 4,
+                color: Colors.grey,
+              ),
+            ),
+            Container(
+              height: size.height * .8,
+              child: ListView(scrollDirection: Axis.vertical, children: [
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(5),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          'Search Results',
+                          style: TextStyle(
+                              fontFamily: 'taviraj',
+                              color: ColorsVariables.textColor,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .045),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: size.height * .4,
+                      width: size.width,
+                      child: new StaggeredGridView.countBuilder(
+                        crossAxisCount: 4,
+                        itemCount: 5,
+                        itemBuilder: (BuildContext context, int index) {
+                          return FeatureCategoryListTile();
+                        },
+                        staggeredTileBuilder: (int index) =>
+                            new StaggeredTile.count(2, index.isEven ? 2 : 3),
+                        mainAxisSpacing: 4.0,
+                        crossAxisSpacing: 4.0,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Related product',
+                              style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  color: ColorsVariables.textColor,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .045),
+                            ),
+                            Text(
+                              'See More',
+                              style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  color: ColorsVariables.textColor,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .045),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: size.height * .4,
+                      width: size.width,
+                      child: new StaggeredGridView.countBuilder(
+                        crossAxisCount: 4,
+                        itemCount: 5,
+                        itemBuilder: (BuildContext context, int index) {
+                          return FeatureCategoryListTile();
+                        },
+                        staggeredTileBuilder: (int index) =>
+                            new StaggeredTile.count(2, index.isEven ? 2 : 3),
+                        mainAxisSpacing: 4.0,
+                        crossAxisSpacing: 4.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ]),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -379,7 +379,7 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
               padding: EdgeInsets.only(top: 0, bottom: 10),
               child: Container(
                 width: size.width,
-                height: size.width * .4,
+                height: size.width * .45,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(9))),
@@ -443,7 +443,7 @@ class _ProductSearchPageState extends State<ProductSearchPage> {
               padding: EdgeInsets.only(top: 10, bottom: 10),
               child: Container(
                 width: size.width,
-                height: size.width * .3,
+                height: size.width * .4,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(9))),

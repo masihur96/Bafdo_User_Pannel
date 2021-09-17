@@ -173,6 +173,7 @@ class _LoginWithNumberState extends State<LoginWithNumber> {
                         vertical: size.width * .03),
                     child: Text(
                       'Sign in with email or username',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'taviraj',
                           fontWeight: FontWeight.w500,

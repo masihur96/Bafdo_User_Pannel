@@ -14,6 +14,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "carousel_pro_nullsafety",
+      "rootUri": "file:///C:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_pro_nullsafety-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "carousel_slider",
       "rootUri": "file:///C:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_slider-4.0.0",
       "packageUri": "lib/",
@@ -230,6 +236,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "motion_tab_bar_v2",
+      "rootUri": "file:///C:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/motion_tab_bar_v2-0.2.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "multi_select_flutter",
       "rootUri": "file:///C:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/multi_select_flutter-4.0.0",
       "packageUri": "lib/",
@@ -440,7 +452,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-09-14T17:20:03.809113Z",
+  "generated": "2021-09-16T10:25:10.179615Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

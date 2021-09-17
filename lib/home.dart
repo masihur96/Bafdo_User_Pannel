@@ -76,10 +76,11 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Container(
+                    padding: const EdgeInsets.only(left: 10, right: 5),
                     width: size.width,
                     height: 80,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
                           onTap: () {
@@ -93,8 +94,11 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
+                                height: size.width * .06,
+                                width: size.width * .06,
                                 child: Image.asset(
                                   'assets/app_icon/bottom_nav_icon/home.png',
+                                  fit: BoxFit.fill,
                                   color: _selectedItem == 0
                                       ? Colors.pink
                                       : Colors.grey,
@@ -103,6 +107,9 @@ class _HomeState extends State<Home> {
                               Text(
                                 'Home',
                                 style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .04,
                                   color: _selectedItem == 0
                                       ? Colors.pink
                                       : Colors.grey,
@@ -123,8 +130,11 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
+                                height: size.width * .06,
+                                width: size.width * .06,
                                 child: Image.asset(
                                   'assets/app_icon/body_icon/festival_grey_icon.png',
+                                  fit: BoxFit.fill,
                                   color: _selectedItem == 1
                                       ? Colors.pink
                                       : Colors.grey,
@@ -133,6 +143,9 @@ class _HomeState extends State<Home> {
                               Text(
                                 'Festival',
                                 style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .04,
                                   color: _selectedItem == 1
                                       ? Colors.pink
                                       : Colors.grey,
@@ -156,16 +169,22 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
+                                height: size.width * .06,
+                                width: size.width * .06,
                                 child: Image.asset(
                                   'assets/app_icon/body_icon/favorite.png',
+                                  fit: BoxFit.fill,
                                   color: _selectedItem == 2
                                       ? Colors.pink
                                       : Colors.grey,
                                 ),
                               ),
                               Text(
-                                'Favorite',
+                                'Wishlist',
                                 style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .04,
                                   color: _selectedItem == 2
                                       ? Colors.pink
                                       : Colors.grey,
@@ -186,8 +205,11 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
+                                height: size.width * .06,
+                                width: size.width * .06,
                                 child: Image.asset(
                                   'assets/app_icon/bottom_nav_icon/profile_grey_icon.png',
+                                  fit: BoxFit.fill,
                                   color: _selectedItem == 3
                                       ? Colors.pink
                                       : Colors.grey,
@@ -196,6 +218,9 @@ class _HomeState extends State<Home> {
                               Text(
                                 'My Bafdo',
                                 style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .04,
                                   color: _selectedItem == 3
                                       ? Colors.pink
                                       : Colors.grey,

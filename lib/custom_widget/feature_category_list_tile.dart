@@ -297,94 +297,99 @@ class _OfferListTileState extends State<OfferListTile> {
                     fontSize: size.width * .03),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                'assets/app_icon/body_icon/tk.png',
-                              ),
-                              Text(
-                                '15',
-                                style: TextStyle(
-                                    fontFamily: 'taviraj',
-                                    color: ColorsVariables.textColor,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: size.width * .05),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: size.width * .01,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                'assets/app_icon/body_icon/tk_grey.png',
-                              ),
-                              Text(
-                                '18',
-                                style: TextStyle(
-                                    fontFamily: 'taviraj',
-                                    color: Colors.grey,
-                                    fontStyle: FontStyle.normal,
-                                    fontWeight: FontWeight.bold,
-                                    decoration: TextDecoration.lineThrough,
-                                    fontSize: size.width * .04),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            'assets/app_icon/body_icon/star.png',
-                            scale: .7,
-                          ),
-                          Image.asset('assets/app_icon/body_icon/star.png',
-                              scale: .7),
-                          Image.asset('assets/app_icon/body_icon/star.png',
-                              scale: .7),
-                          Image.asset('assets/app_icon/body_icon/star.png',
-                              scale: .7),
-                          Image.asset('assets/app_icon/body_icon/star.png',
-                              scale: .7),
-                          Text(
-                            '  (101)',
-                            style: TextStyle(
-                                fontFamily: 'taviraj',
-                                color: Colors.grey,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                fontSize: size.width * .03),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: size.width * .05,
-                  ),
-                  Icon(
+            Stack(children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  'assets/app_icon/body_icon/tk.png',
+                                ),
+                                Text(
+                                  '15',
+                                  style: TextStyle(
+                                      fontFamily: 'taviraj',
+                                      color: ColorsVariables.textColor,
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: size.width * .05),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: size.width * .01,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  'assets/app_icon/body_icon/tk_grey.png',
+                                ),
+                                Text(
+                                  '18',
+                                  style: TextStyle(
+                                      fontFamily: 'taviraj',
+                                      color: Colors.grey,
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.bold,
+                                      decoration: TextDecoration.lineThrough,
+                                      fontSize: size.width * .04),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Image.asset(
+                              'assets/app_icon/body_icon/star.png',
+                              scale: .7,
+                            ),
+                            Image.asset('assets/app_icon/body_icon/star.png',
+                                scale: .7),
+                            Image.asset('assets/app_icon/body_icon/star.png',
+                                scale: .7),
+                            Image.asset('assets/app_icon/body_icon/star.png',
+                                scale: .7),
+                            Image.asset('assets/app_icon/body_icon/star.png',
+                                scale: .7),
+                            Text(
+                              '  (101)',
+                              style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  color: Colors.grey,
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: size.width * .03),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                  bottom: size.width * .04,
+                  right: size.width * .02,
+                  child: Icon(
                     Icons.add_circle_outline,
                     size: size.width * .08,
-                  )
-                ],
-              ),
-            ),
+                  ))
+            ]),
           ],
         ),
       ),

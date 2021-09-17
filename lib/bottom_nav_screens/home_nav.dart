@@ -4,7 +4,9 @@ import 'package:bafdo/custom_widget/feature_category_list_tile.dart';
 import 'package:bafdo/pages/category_page.dart';
 import 'package:bafdo/sub_pages/coupos_page.dart';
 import 'package:bafdo/sub_pages/notifications_page.dart';
+import 'package:bafdo/sub_pages/product_details.dart';
 import 'package:bafdo/sub_pages/product_page.dart';
+import 'package:bafdo/sub_pages/product_search_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -217,37 +219,44 @@ class _HomeNavState extends State<HomeNav> {
         Padding(
           padding: EdgeInsets.fromLTRB(size.width * .045, size.width * .00,
               size.width * .045, size.width * .015),
-          child: Container(
-            width: size.width,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(size.width * .03),
-                )),
-            child: Padding(
-                padding: EdgeInsets.fromLTRB(size.width * .03, 0, 0, 0),
-                child: Container(
-                  width: size.width * .6,
-                  child: TextFormField(
-                    controller: _searchController,
-                    decoration: InputDecoration(
-                        hintText: 'Search product',
-                        hintStyle: TextStyle(
-                            fontFamily: 'taviraj',
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey,
-                            fontStyle: FontStyle.normal,
-                            fontSize: size.width * .04),
-                        suffixIcon: Image.asset(
-                          'assets/app_icon/text_field_icon/search_icon.png',
-                        ),
-                        border: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none),
-                    cursorColor: Color(0xff131214),
-                  ),
-                )),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => ProductSearchPage()));
+            },
+            child: Container(
+              width: size.width,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(size.width * .03),
+                  )),
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(size.width * .03, 0, 0, 0),
+                  child: Container(
+                    width: size.width * .6,
+                    child: TextFormField(
+                      controller: _searchController,
+                      decoration: InputDecoration(
+                          hintText: 'Search product',
+                          hintStyle: TextStyle(
+                              fontFamily: 'taviraj',
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey,
+                              fontStyle: FontStyle.normal,
+                              fontSize: size.width * .04),
+                          suffixIcon: Image.asset(
+                            'assets/app_icon/text_field_icon/search_icon.png',
+                          ),
+                          enabled: false,
+                          border: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none),
+                      cursorColor: Color(0xff131214),
+                    ),
+                  )),
+            ),
           ),
         ),
         Expanded(
@@ -325,8 +334,8 @@ class _HomeNavState extends State<HomeNav> {
                               child: Text(
                                 'Get Now',
                                 style: TextStyle(
-                                    fontFamily: 'taviraj',
                                     color: Colors.white,
+                                    fontFamily: 'taviraj',
                                     fontStyle: FontStyle.normal,
                                     fontSize: size.width * .045),
                               ),
@@ -341,11 +350,6 @@ class _HomeNavState extends State<HomeNav> {
                   children: [
                     Column(
                       children: [
-                        Container(
-                          height: .5,
-                          width: size.width,
-                          color: ColorsVariables.pinkColor,
-                        ),
                         GridView.builder(
                             itemCount: 8,
                             gridDelegate:
@@ -356,53 +360,86 @@ class _HomeNavState extends State<HomeNav> {
                             physics: ClampingScrollPhysics(),
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              return specialCategoryListTile(
-                                  context,
-                                  _special_gift_categories,
-                                  _feature_icons_list,
-                                  index);
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => CategoryPage()));
+                                },
+                                child: specialCategoryListTile(
+                                    context,
+                                    _special_gift_categories,
+                                    _feature_icons_list,
+                                    index),
+                              );
                             }),
                       ],
                     ),
                     Positioned(
-                        left: size.width * .1,
-                        top: -30,
+                        left: 0,
+                        top: -size.width * .085,
                         child: Container(
+                            width: size.width,
+                            child: Image.asset(
+                              'assets/app_icon/body_icon/special_curve_empty.png',
+                              fit: BoxFit.fill,
+                            )
+                            // Container(
+                            //   margin: const EdgeInsetsDirectional.only(
+                            //       start: 1, end: 1, top: 1),
+                            //   decoration: BoxDecoration(
+                            //     color: Colors.white,
+                            //     borderRadius: BorderRadius.only(
+                            //       topLeft: const Radius.circular(13.0),
+                            //       topRight: const Radius.circular(13.0),
+                            //     ),
+                            //   ), // Bor
+                            //   child: Padding(
+                            //     padding:
+                            //         const EdgeInsets.symmetric(horizontal: 30),
+                            //     child: Text(
+                            //       'Special',
+                            //       style: TextStyle(
+                            //           fontFamily: 'taviraj',
+                            //           fontWeight: FontWeight.w500,
+                            //           color: ColorsVariables.textColor,
+                            //           fontStyle: FontStyle.normal,
+                            //           fontSize: size.width * .045),
+                            //     ),
+                            //   ),
+                            // ),
+                            )),
+                    Positioned(
+                        left: size.width * .07,
+                        top: -size.width * .08,
+                        child: Container(
+                          width: size.width * .3,
                           decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.pink),
-                            borderRadius: BorderRadius.only(
-                              topLeft: const Radius.circular(15.0),
-                              topRight: const Radius.circular(15.0),
-                            ),
-                          ),
-                          child: Container(
-                            margin: const EdgeInsetsDirectional.only(
-                                start: 1, end: 1, top: 1),
-                            decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.only(
-                                topLeft: const Radius.circular(13.0),
-                                topRight: const Radius.circular(13.0),
-                              ),
-                            ), // Bor
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 30),
-                              child: Text(
-                                'Special',
-                                style: TextStyle(
-                                    fontFamily: 'taviraj',
-                                    fontWeight: FontWeight.w500,
-                                    color: ColorsVariables.textColor,
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: size.width * .045),
-                              ),
+                                topRight: Radius.circular(10),
+                                topLeft: Radius.circular(10),
+                              )),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: size.width * .078,
+                              vertical: size.width * .015,
+                            ),
+                            child: Text(
+                              'Special',
+                              style: TextStyle(
+                                  fontFamily: 'taviraj',
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorsVariables.pinkColor,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: size.width * .043),
                             ),
                           ),
                         )),
                     Positioned(
                         left: size.width * .5,
-                        top: -30,
+                        top: -26,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30),
                           child: Text(
@@ -412,13 +449,13 @@ class _HomeNavState extends State<HomeNav> {
                                 fontWeight: FontWeight.w500,
                                 color: ColorsVariables.textColor,
                                 fontStyle: FontStyle.normal,
-                                fontSize: size.width * .045),
+                                fontSize: size.width * .04),
                           ),
                         )),
                   ],
                 ),
                 SizedBox(
-                  height: size.width * .01,
+                  height: size.width * .005,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -448,7 +485,9 @@ class _HomeNavState extends State<HomeNav> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => CategoryPage()));
+                                builder: (context) => ProductPage(
+                                      navigateFrom: 'Traditional Categories',
+                                    )));
                       },
                       child: Padding(
                         padding:
@@ -473,7 +512,14 @@ class _HomeNavState extends State<HomeNav> {
                     scrollDirection: Axis.horizontal,
                     itemCount: 3,
                     itemBuilder: (context, index) {
-                      return FeatureCategoryListTile();
+                      return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => ProductDetail()));
+                          },
+                          child: FeatureCategoryListTile());
                     },
                   ),
                 ),

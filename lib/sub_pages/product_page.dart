@@ -85,7 +85,7 @@ class _ProductPageState extends State<ProductPage> {
                         'assets/app_icon/body_icon/flash_deal_icon.png',
                       ),
                       Text(
-                        'Flash Deal',
+                        'Flash Deal ',
                         style: TextStyle(
                             fontFamily: 'taviraj',
                             fontWeight: FontWeight.w500,

@@ -2,6 +2,7 @@ import 'package:bafdo/colors.dart';
 import 'package:bafdo/custom_widget/custom_appbar.dart';
 import 'package:bafdo/pages/login_page.dart';
 import 'package:bafdo/pages/login_with_number.dart';
+import 'package:bafdo/re-seller/reseller_home.dart';
 import 'package:bafdo/widgets/form_decoration.dart';
 import 'package:bafdo/widgets/gradient_button.dart';
 import 'package:flutter/material.dart';
@@ -29,8 +30,18 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Image.asset('assets/app_icon/app_bar_icon/arrow_left.png')),
         actions: [
           InkWell(
-              onTap: () {},
-              child: Image.asset('assets/app_icon/app_bar_icon/close.png')),
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => ReselerHome()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Re-Seller',
+                  style:
+                      TextStyle(color: ColorsVariables.textColor, fontSize: 25),
+                ),
+              )),
         ],
       ),
       backgroundColor: ColorsVariables.backgrowndColor,
