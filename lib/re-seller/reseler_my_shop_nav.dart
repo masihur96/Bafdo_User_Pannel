@@ -100,7 +100,7 @@ class _ReselerMyShopState extends State<ReselerMyShop>  with SingleTickerProvide
                                        crossAxisAlignment: CrossAxisAlignment.center,
                                        children: [
 
-                                         Text('Add New Collection'),
+                                         Text('Add New Collection',textAlign: TextAlign.center,),
                                          Icon(Icons.add, size: size.width * .12)
 
                                        ],),),

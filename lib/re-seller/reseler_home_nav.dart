@@ -37,7 +37,7 @@ class _ReselerHomeNavState extends State<ReselerHomeNav> {
           child: Column(
             children: [
               Container(
-                height: size.width * .35,
+                height: size.width * .4,
                 width: size.width,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,

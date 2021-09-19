@@ -39,54 +39,55 @@ Widget getCollectionFolder(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(size.width * .03),
         ),
-        child: Padding(
+        child: Container(
 
-            padding: const EdgeInsets.all(8.0),
-
-          child:    Column(
-            children: [
-              Container(
-                width: size.width * .3,
-                height: size.width * .2,
-                child: Image.asset(
-                  'assets/app_icon/body_icon/folder.png',
-                ),
-              ),
-
-              Align(alignment: Alignment.topLeft,
-
-                child:  Text(
-                  '${categoryList[index]}',
-                  style: TextStyle(
-                      fontFamily: 'taviraj',
-                      color: ColorsVariables.textColor,
-                      fontStyle: FontStyle.normal,
-                      fontSize: size.width * .04),
-                ),),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-
-                  Container( decoration: BoxDecoration(
-                      border: Border.all(width: 1,color: Colors.pinkAccent),
-                      borderRadius: BorderRadius.all(Radius.circular(20))
-                  ) ,
-
-                      child:  Padding( padding: const EdgeInsets.only(left: 10.0,right: 10.0,),
-                        child:Text('Share',
-                          style: TextStyle(
-                              fontFamily: 'taviraj',
-                              color: ColorsVariables.pinkColor,
-                              fontStyle: FontStyle.normal,
-                              fontSize: size.width * .04),) ,
-                      )
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8,right: 8),
+            child: Column(
+              children: [
+                Container(
+                  width: size.width * .3,
+                  height: size.width * .2,
+                  child: Image.asset(
+                    'assets/app_icon/body_icon/folder.png',
                   ),
-                  Container(
-                    child: Icon(Icons.delete_outline,color: Colors.pinkAccent,),
-                  )
-                ],)
-            ],),
+                ),
+
+                Align(alignment: Alignment.topLeft,
+
+                  child:  Text(
+                    '${categoryList[index]}',
+                    style: TextStyle(
+                        fontFamily: 'taviraj',
+                        color: ColorsVariables.textColor,
+                        fontStyle: FontStyle.normal,
+                        fontSize: size.width * .04),
+                  ),),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    Container( decoration: BoxDecoration(
+                        border: Border.all(width: 1,color: Colors.pinkAccent),
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                    ) ,
+
+                        child:  Padding( padding: const EdgeInsets.only(left: 10.0,right: 10.0,),
+                          child:Text('Share',
+                            style: TextStyle(
+                                fontFamily: 'taviraj',
+                                color: ColorsVariables.pinkColor,
+                                fontStyle: FontStyle.normal,
+                                fontSize: size.width * .04),) ,
+                        )
+                    ),
+                    Container(
+                      child: Icon(Icons.delete_outline,color: Colors.pinkAccent,),
+                    )
+                  ],)
+              ],),
+          ),
         ),
 
 

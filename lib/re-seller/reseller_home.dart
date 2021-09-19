@@ -62,6 +62,7 @@ class _ReselerHomeState extends State<ReselerHome>
         ),
         backgroundColor: Colors.pink.shade100,
         elevation: 0.0,
+        centerTitle: false,
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -108,7 +109,7 @@ class _ReselerHomeState extends State<ReselerHome>
         ),
         actions: [
           Container(
-            width: size.width * .4,
+            width: size.width * .5,
             child: Padding(
               padding: EdgeInsets.fromLTRB(0, 0, size.width * .045, 0),
               child: Row(
@@ -225,7 +226,7 @@ class _ReselerHomeState extends State<ReselerHome>
         tabSize: 70,
         tabBarHeight: 70,
         textStyle: const TextStyle(
-          fontSize: 15,
+          fontSize: 14,
           color: Colors.pink,
           fontWeight: FontWeight.w500,
         ),

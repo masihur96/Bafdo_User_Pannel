@@ -143,16 +143,13 @@ class _ReselerCatelogNavState extends State<ReselerCatelogNav> {
                                           'assets/app_icon/body_icon/joy_stick.png'),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Joy Stick",
-                                      style: TextStyle(
-                                          fontFamily: 'taviraj',
-                                          color: ColorsVariables.textColor,
-                                          fontStyle: FontStyle.normal,
-                                          fontSize: size.width * .04),
-                                    ),
+                                  Text(
+                                    "Joy Stick",
+                                    style: TextStyle(
+                                        fontFamily: 'taviraj',
+                                        color: ColorsVariables.textColor,
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: size.width * .04),
                                   ),
                                 ],
                               ),
