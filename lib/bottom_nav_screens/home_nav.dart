@@ -7,6 +7,7 @@ import 'package:bafdo/sub_pages/notifications_page.dart';
 import 'package:bafdo/sub_pages/product_details.dart';
 import 'package:bafdo/sub_pages/product_page.dart';
 import 'package:bafdo/sub_pages/product_search_page.dart';
+import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -267,57 +268,55 @@ class _HomeNavState extends State<HomeNav> {
                   child: Column(children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: ColorsVariables.pinkCategoryTextColor,
+
                       borderRadius: BorderRadius.all(Radius.circular(22))),
                   child: Stack(
                     children: [
-                      Container(
-                          child: CarouselSlider.builder(
-                        itemCount: imgList.length,
-                        options: CarouselOptions(
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                              currentPos = index;
-                            });
-                          },
-                          autoPlay: true,
-                          aspectRatio: 2.0,
-                          enlargeCenterPage: true,
-                        ),
-                        itemBuilder: (context, index, realIdx) {
-                          return Container(
-                            child: Center(
-                                child: Image.asset(imgList[index],
-                                    fit: BoxFit.fill, width: size.width)),
-                          );
-                        },
-                      )),
-                      // Positioned(
-                      //   bottom: 1,
-                      //   left: size.width * .4,
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.center,
-                      //     children: imgList.map((url) {
-                      //       int? dotIndex;
-                      //       setState(() {
-                      //         dotIndex = imgList.indexOf(url);
-                      //       });
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: size.width * .5,
+                          width: size.width,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(Radius.circular(6.97))),
+                          child: Carousel(
+                            boxFit: BoxFit.cover,
+                            autoplay: true,
+                            animationCurve: Curves.fastOutSlowIn,
+                            animationDuration: Duration(milliseconds: 1000),
+                            dotSize: 6.0,
+                            dotIncreasedColor: Color(0xFFFF335C),
+                            dotBgColor: Colors.transparent,
+                            dotColor: Colors.white60,
+                            dotPosition: DotPosition.bottomRight,
+                            dotVerticalPadding: 10.0,
+                            showIndicator: true,
+                            indicatorBgPadding: 7.0,
+                            images: imgList.map((item) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                    height: 250,
+                                    margin: EdgeInsets.symmetric(vertical: 0),
+                                    decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Image.asset(
+                                      item,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  );
+                                },
+                              );
+                            }).toList(),
 
-                      //       return Container(
-                      //         width: 8.0,
-                      //         height: 8.0,
-                      //         margin: EdgeInsets.symmetric(
-                      //             vertical: 10.0, horizontal: 2.0),
-                      //         decoration: BoxDecoration(
-                      //           shape: BoxShape.circle,
-                      //           color: currentPos == dotIndex
-                      //               ? Colors.white
-                      //               : Color.fromRGBO(0, 0, 0, 0.4),
-                      //         ),
-                      //       );
-                      //     }).toList(),
-                      //   ),
-                      // ),
+
+                          ),
+                        ),
+                      ),
+
                       Positioned(
                         bottom: size.width * .05,
                         left: size.width * .1,
@@ -374,6 +373,8 @@ class _HomeNavState extends State<HomeNav> {
                                     index),
                               );
                             }),
+
+
                       ],
                     ),
                     Positioned(

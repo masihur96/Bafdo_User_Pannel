@@ -1,6 +1,7 @@
 import 'package:bafdo/colors.dart';
 import 'package:bafdo/custom_widget/custom_appbar.dart';
 import 'package:bafdo/custom_widget/feature_category_list_tile.dart';
+import 'package:bafdo/sub_pages/cart_page.dart';
 import 'package:flutter/material.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -25,7 +26,9 @@ class _NotificationPageState extends State<NotificationPage> {
               child:
                   Image.asset('assets/app_icon/app_bar_icon/arrow_left.png')),
           trailing1: InkWell(
-              onTap: () {},
+              onTap: () { Navigator.push(context, MaterialPageRoute(builder: (_)=>CartPage()));
+
+              },
               child: Container(
                   width: size.width * .07,
                   height: size.width * .07,
@@ -33,6 +36,7 @@ class _NotificationPageState extends State<NotificationPage> {
                     'assets/app_icon/app_bar_icon/cart_grey.png',
                     fit: BoxFit.fill,
                   ))),
+
           trailing2: Container(),
           title: Text(
             'Notifications',

@@ -1,11 +1,9 @@
 import 'dart:ui';
-
 import 'package:bafdo/bottom_nav_screens/my_bafdu_nav.dart';
 import 'package:bafdo/bottom_nav_screens/festival_nav.dart';
-
 import 'package:bafdo/bottom_nav_screens/home_nav.dart';
 import 'package:bafdo/bottom_nav_screens/wish_list_nav.dart';
-
+import 'package:bafdo/pages/add_priyo_manush_page.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -29,7 +27,22 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Color(0xffEFF9F9), body: _bodyUI(context));
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+        floatingActionButton: Container(
+          height: size.width * 0.17,
+          width: size.width * 0.17,
+          child: FloatingActionButton(
+
+              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (_)=>AddPriyoManush()));}, child: Icon(Icons.add,size: size.width*.15,),
+            elevation: 0.1,
+
+
+          ), ),floatingActionButtonLocation:
+    FloatingActionButtonLocation.centerFloat,
+
+
+        backgroundColor: Color(0xffEFF9F9), body: _bodyUI(context));
   }
 
   Widget _bodyUI(BuildContext context) {
@@ -60,21 +73,19 @@ class _HomeState extends State<Home> {
               color: Colors.transparent,
               child: Stack(
                 children: [
-                  CustomPaint(
-                    size: Size(size.width, size.width * .2),
-                    painter: BNBCustomPainter(),
-                  ),
-                  Center(
-                    heightFactor: 0.8,
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        print(_selectedItem);
-                      },
-                      backgroundColor: Colors.pink,
-                      child: Icon(Icons.add),
-                      elevation: 0.1,
-                    ),
-                  ),
+                  Container(
+                    width: size.width,
+                    height: size.width*.2,
+                    child: Image.asset(
+    'assets/app_icon/bottom_nav_icon/bottom_curve.png',
+    fit: BoxFit.fill,),),
+
+
+                  // CustomPaint(
+                  //   size: Size(size.width, size.width * .2),
+                  //   painter: BNBCustomPainter(),
+                  // ),
+
                   Container(
                     padding: const EdgeInsets.only(left: 10, right: 5),
                     width: size.width,
